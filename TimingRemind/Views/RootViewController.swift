@@ -15,6 +15,10 @@ class RootViewController: UIViewController, UIPageViewControllerDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // TODO 初始化数据库
+        self.initSqlite()
+        
         // Do any additional setup after loading the view, typically from a nib.
         // Configure the page view controller and add it as a child view controller.
         self.pageViewController = UIPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
@@ -42,6 +46,11 @@ class RootViewController: UIViewController, UIPageViewControllerDelegate {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    // init SQlite DB setup
+    func initSqlite(){
+        
     }
 
     var modelController: ModelController {

@@ -7,21 +7,32 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D70C6EC71F83C6B60017D729 /* DataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D70C6EC41F83C6B60017D729 /* DataViewController.swift */; };
+		D70C6EC81F83C6B60017D729 /* ModelController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D70C6EC51F83C6B60017D729 /* ModelController.swift */; };
+		D70C6EC91F83C6B60017D729 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D70C6EC61F83C6B60017D729 /* RootViewController.swift */; };
+		D724F63F1F83C8AC00AB1917 /* SQLiteDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = D724F63B1F83C8AC00AB1917 /* SQLiteDB.swift */; };
+		D724F6401F83C8AC00AB1917 /* String-Extras.swift in Sources */ = {isa = PBXBuildFile; fileRef = D724F63C1F83C8AC00AB1917 /* String-Extras.swift */; };
+		D724F6411F83C8AC00AB1917 /* SQLTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D724F63D1F83C8AC00AB1917 /* SQLTable.swift */; };
+		D724F6461F83C8F200AB1917 /* data.db in Resources */ = {isa = PBXBuildFile; fileRef = D724F6451F83C8F200AB1917 /* data.db */; };
+		D724F6491F83CD4000AB1917 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = D724F6481F83CD4000AB1917 /* libsqlite3.0.tbd */; };
 		D7A1372B1F839412005F7FF5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7A1372A1F839412005F7FF5 /* AppDelegate.swift */; };
-		D7A1372D1F839412005F7FF5 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7A1372C1F839412005F7FF5 /* RootViewController.swift */; };
-		D7A1372F1F839412005F7FF5 /* DataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7A1372E1F839412005F7FF5 /* DataViewController.swift */; };
-		D7A137311F839412005F7FF5 /* ModelController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7A137301F839412005F7FF5 /* ModelController.swift */; };
 		D7A137341F839412005F7FF5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D7A137321F839412005F7FF5 /* Main.storyboard */; };
 		D7A137361F839412005F7FF5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D7A137351F839412005F7FF5 /* Assets.xcassets */; };
 		D7A137391F839412005F7FF5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D7A137371F839412005F7FF5 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D70C6EC41F83C6B60017D729 /* DataViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DataViewController.swift; path = TimingRemind/Views/DataViewController.swift; sourceTree = "<group>"; };
+		D70C6EC51F83C6B60017D729 /* ModelController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ModelController.swift; path = TimingRemind/Views/ModelController.swift; sourceTree = "<group>"; };
+		D70C6EC61F83C6B60017D729 /* RootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RootViewController.swift; path = TimingRemind/Views/RootViewController.swift; sourceTree = "<group>"; };
+		D724F63B1F83C8AC00AB1917 /* SQLiteDB.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SQLiteDB.swift; sourceTree = "<group>"; };
+		D724F63C1F83C8AC00AB1917 /* String-Extras.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String-Extras.swift"; sourceTree = "<group>"; };
+		D724F63D1F83C8AC00AB1917 /* SQLTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SQLTable.swift; sourceTree = "<group>"; };
+		D724F63E1F83C8AC00AB1917 /* Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
+		D724F6451F83C8F200AB1917 /* data.db */ = {isa = PBXFileReference; lastKnownFileType = file; name = data.db; path = TimingRemind/Resource/data.db; sourceTree = SOURCE_ROOT; };
+		D724F6481F83CD4000AB1917 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
 		D7A137271F839412005F7FF5 /* TimingRemind.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TimingRemind.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D7A1372A1F839412005F7FF5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		D7A1372C1F839412005F7FF5 /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
-		D7A1372E1F839412005F7FF5 /* DataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataViewController.swift; sourceTree = "<group>"; };
-		D7A137301F839412005F7FF5 /* ModelController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelController.swift; sourceTree = "<group>"; };
 		D7A137331F839412005F7FF5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D7A137351F839412005F7FF5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D7A137381F839412005F7FF5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -33,17 +44,58 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D724F6491F83CD4000AB1917 /* libsqlite3.0.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D70C6EC31F83C6920017D729 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				D70C6EC61F83C6B60017D729 /* RootViewController.swift */,
+				D70C6EC41F83C6B60017D729 /* DataViewController.swift */,
+				D70C6EC51F83C6B60017D729 /* ModelController.swift */,
+			);
+			name = Views;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		D724F63A1F83C88600AB1917 /* SQliteDB */ = {
+			isa = PBXGroup;
+			children = (
+				D724F63E1F83C8AC00AB1917 /* Bridging-Header.h */,
+				D724F63B1F83C8AC00AB1917 /* SQLiteDB.swift */,
+				D724F63D1F83C8AC00AB1917 /* SQLTable.swift */,
+				D724F63C1F83C8AC00AB1917 /* String-Extras.swift */,
+			);
+			path = SQliteDB;
+			sourceTree = "<group>";
+		};
+		D724F6441F83C8C500AB1917 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				D724F6451F83C8F200AB1917 /* data.db */,
+			);
+			name = Resource;
+			path = "New Group";
+			sourceTree = "<group>";
+		};
+		D724F6471F83CD4000AB1917 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D724F6481F83CD4000AB1917 /* libsqlite3.0.tbd */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		D7A1371E1F839411005F7FF5 = {
 			isa = PBXGroup;
 			children = (
 				D7A137291F839412005F7FF5 /* TimingRemind */,
 				D7A137281F839412005F7FF5 /* Products */,
+				D724F6471F83CD4000AB1917 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -58,10 +110,10 @@
 		D7A137291F839412005F7FF5 /* TimingRemind */ = {
 			isa = PBXGroup;
 			children = (
+				D724F6441F83C8C500AB1917 /* Resource */,
+				D724F63A1F83C88600AB1917 /* SQliteDB */,
+				D70C6EC31F83C6920017D729 /* Views */,
 				D7A1372A1F839412005F7FF5 /* AppDelegate.swift */,
-				D7A1372C1F839412005F7FF5 /* RootViewController.swift */,
-				D7A1372E1F839412005F7FF5 /* DataViewController.swift */,
-				D7A137301F839412005F7FF5 /* ModelController.swift */,
 				D7A137321F839412005F7FF5 /* Main.storyboard */,
 				D7A137351F839412005F7FF5 /* Assets.xcassets */,
 				D7A137371F839412005F7FF5 /* LaunchScreen.storyboard */,
@@ -130,6 +182,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D7A137391F839412005F7FF5 /* LaunchScreen.storyboard in Resources */,
+				D724F6461F83C8F200AB1917 /* data.db in Resources */,
 				D7A137361F839412005F7FF5 /* Assets.xcassets in Resources */,
 				D7A137341F839412005F7FF5 /* Main.storyboard in Resources */,
 			);
@@ -142,9 +195,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D7A1372D1F839412005F7FF5 /* RootViewController.swift in Sources */,
-				D7A137311F839412005F7FF5 /* ModelController.swift in Sources */,
-				D7A1372F1F839412005F7FF5 /* DataViewController.swift in Sources */,
+				D70C6EC81F83C6B60017D729 /* ModelController.swift in Sources */,
+				D724F6411F83C8AC00AB1917 /* SQLTable.swift in Sources */,
+				D724F6401F83C8AC00AB1917 /* String-Extras.swift in Sources */,
+				D70C6EC71F83C6B60017D729 /* DataViewController.swift in Sources */,
+				D724F63F1F83C8AC00AB1917 /* SQLiteDB.swift in Sources */,
+				D70C6EC91F83C6B60017D729 /* RootViewController.swift in Sources */,
 				D7A1372B1F839412005F7FF5 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -288,6 +344,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Ellusionists.TimingRemind;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "TimingRemind/SQliteDB/Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -303,6 +360,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Ellusionists.TimingRemind;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "TimingRemind/SQliteDB/Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
