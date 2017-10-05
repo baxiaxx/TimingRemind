@@ -13,8 +13,16 @@
 		D724F63F1F83C8AC00AB1917 /* SQLiteDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = D724F63B1F83C8AC00AB1917 /* SQLiteDB.swift */; };
 		D724F6401F83C8AC00AB1917 /* String-Extras.swift in Sources */ = {isa = PBXBuildFile; fileRef = D724F63C1F83C8AC00AB1917 /* String-Extras.swift */; };
 		D724F6411F83C8AC00AB1917 /* SQLTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D724F63D1F83C8AC00AB1917 /* SQLTable.swift */; };
-		D724F6461F83C8F200AB1917 /* data.db in Resources */ = {isa = PBXBuildFile; fileRef = D724F6451F83C8F200AB1917 /* data.db */; };
 		D724F6491F83CD4000AB1917 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = D724F6481F83CD4000AB1917 /* libsqlite3.0.tbd */; };
+		D73D7EA21F86516D00A91E02 /* TimerDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D73D7EA11F86516D00A91E02 /* TimerDataModel.swift */; };
+		D73D7EA91F86532100A91E02 /* ImageUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D73D7EA41F86532100A91E02 /* ImageUtils.swift */; };
+		D73D7EAA1F86532100A91E02 /* SQliteRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D73D7EA51F86532100A91E02 /* SQliteRepository.swift */; };
+		D73D7EAB1F86532100A91E02 /* TouchIDUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D73D7EA61F86532100A91E02 /* TouchIDUtils.swift */; };
+		D73D7EAC1F86532100A91E02 /* AlertControllerUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D73D7EA71F86532100A91E02 /* AlertControllerUtils.swift */; };
+		D73D7EAD1F86532100A91E02 /* DateTimeUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D73D7EA81F86532100A91E02 /* DateTimeUtils.swift */; };
+		D73D7EB11F8653CD00A91E02 /* NSObjectExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D73D7EAF1F8653CD00A91E02 /* NSObjectExtension.swift */; };
+		D73D7EB21F8653CD00A91E02 /* NSDateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D73D7EB01F8653CD00A91E02 /* NSDateExtension.swift */; };
+		D73D7EB81F86639100A91E02 /* data.db in Resources */ = {isa = PBXBuildFile; fileRef = D73D7EB71F86639100A91E02 /* data.db */; };
 		D7A1372B1F839412005F7FF5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7A1372A1F839412005F7FF5 /* AppDelegate.swift */; };
 		D7A137341F839412005F7FF5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D7A137321F839412005F7FF5 /* Main.storyboard */; };
 		D7A137361F839412005F7FF5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D7A137351F839412005F7FF5 /* Assets.xcassets */; };
@@ -29,8 +37,16 @@
 		D724F63C1F83C8AC00AB1917 /* String-Extras.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String-Extras.swift"; sourceTree = "<group>"; };
 		D724F63D1F83C8AC00AB1917 /* SQLTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SQLTable.swift; sourceTree = "<group>"; };
 		D724F63E1F83C8AC00AB1917 /* Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
-		D724F6451F83C8F200AB1917 /* data.db */ = {isa = PBXFileReference; lastKnownFileType = file; name = data.db; path = TimingRemind/Resource/data.db; sourceTree = SOURCE_ROOT; };
 		D724F6481F83CD4000AB1917 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
+		D73D7EA11F86516D00A91E02 /* TimerDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TimerDataModel.swift; path = Model/TimerDataModel.swift; sourceTree = "<group>"; };
+		D73D7EA41F86532100A91E02 /* ImageUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageUtils.swift; path = Utils/ImageUtils.swift; sourceTree = "<group>"; };
+		D73D7EA51F86532100A91E02 /* SQliteRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SQliteRepository.swift; path = Utils/SQliteRepository.swift; sourceTree = "<group>"; };
+		D73D7EA61F86532100A91E02 /* TouchIDUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TouchIDUtils.swift; path = Utils/TouchIDUtils.swift; sourceTree = "<group>"; };
+		D73D7EA71F86532100A91E02 /* AlertControllerUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AlertControllerUtils.swift; path = Utils/AlertControllerUtils.swift; sourceTree = "<group>"; };
+		D73D7EA81F86532100A91E02 /* DateTimeUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DateTimeUtils.swift; path = Utils/DateTimeUtils.swift; sourceTree = "<group>"; };
+		D73D7EAF1F8653CD00A91E02 /* NSObjectExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NSObjectExtension.swift; path = Extensions/NSObjectExtension.swift; sourceTree = "<group>"; };
+		D73D7EB01F8653CD00A91E02 /* NSDateExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NSDateExtension.swift; path = Extensions/NSDateExtension.swift; sourceTree = "<group>"; };
+		D73D7EB71F86639100A91E02 /* data.db */ = {isa = PBXFileReference; lastKnownFileType = file; name = data.db; path = Resource/data.db; sourceTree = "<group>"; };
 		D7A137271F839412005F7FF5 /* TimingRemind.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TimingRemind.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D7A1372A1F839412005F7FF5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D7A137331F839412005F7FF5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -73,21 +89,49 @@
 			path = SQliteDB;
 			sourceTree = "<group>";
 		};
-		D724F6441F83C8C500AB1917 /* Resource */ = {
-			isa = PBXGroup;
-			children = (
-				D724F6451F83C8F200AB1917 /* data.db */,
-			);
-			name = Resource;
-			path = "New Group";
-			sourceTree = "<group>";
-		};
 		D724F6471F83CD4000AB1917 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				D724F6481F83CD4000AB1917 /* libsqlite3.0.tbd */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D73D7EA01F8650E600A91E02 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D73D7EA11F86516D00A91E02 /* TimerDataModel.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		D73D7EA31F86530B00A91E02 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				D73D7EA71F86532100A91E02 /* AlertControllerUtils.swift */,
+				D73D7EA81F86532100A91E02 /* DateTimeUtils.swift */,
+				D73D7EA41F86532100A91E02 /* ImageUtils.swift */,
+				D73D7EA51F86532100A91E02 /* SQliteRepository.swift */,
+				D73D7EA61F86532100A91E02 /* TouchIDUtils.swift */,
+			);
+			name = Utils;
+			sourceTree = "<group>";
+		};
+		D73D7EAE1F8653A500A91E02 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				D73D7EB01F8653CD00A91E02 /* NSDateExtension.swift */,
+				D73D7EAF1F8653CD00A91E02 /* NSObjectExtension.swift */,
+			);
+			name = Extensions;
+			sourceTree = "<group>";
+		};
+		D73D7EB61F86635600A91E02 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				D73D7EB71F86639100A91E02 /* data.db */,
+			);
+			name = Resource;
 			sourceTree = "<group>";
 		};
 		D7A1371E1F839411005F7FF5 = {
@@ -110,9 +154,12 @@
 		D7A137291F839412005F7FF5 /* TimingRemind */ = {
 			isa = PBXGroup;
 			children = (
-				D724F6441F83C8C500AB1917 /* Resource */,
+				D73D7EB61F86635600A91E02 /* Resource */,
 				D724F63A1F83C88600AB1917 /* SQliteDB */,
+				D73D7EA01F8650E600A91E02 /* Model */,
 				D70C6EC31F83C6920017D729 /* Views */,
+				D73D7EAE1F8653A500A91E02 /* Extensions */,
+				D73D7EA31F86530B00A91E02 /* Utils */,
 				D7A1372A1F839412005F7FF5 /* AppDelegate.swift */,
 				D7A137321F839412005F7FF5 /* Main.storyboard */,
 				D7A137351F839412005F7FF5 /* Assets.xcassets */,
@@ -182,7 +229,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D7A137391F839412005F7FF5 /* LaunchScreen.storyboard in Resources */,
-				D724F6461F83C8F200AB1917 /* data.db in Resources */,
+				D73D7EB81F86639100A91E02 /* data.db in Resources */,
 				D7A137361F839412005F7FF5 /* Assets.xcassets in Resources */,
 				D7A137341F839412005F7FF5 /* Main.storyboard in Resources */,
 			);
@@ -196,9 +243,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				D70C6EC81F83C6B60017D729 /* ModelController.swift in Sources */,
+				D73D7EAA1F86532100A91E02 /* SQliteRepository.swift in Sources */,
 				D724F6411F83C8AC00AB1917 /* SQLTable.swift in Sources */,
+				D73D7EA91F86532100A91E02 /* ImageUtils.swift in Sources */,
 				D724F6401F83C8AC00AB1917 /* String-Extras.swift in Sources */,
+				D73D7EA21F86516D00A91E02 /* TimerDataModel.swift in Sources */,
+				D73D7EB21F8653CD00A91E02 /* NSDateExtension.swift in Sources */,
+				D73D7EAC1F86532100A91E02 /* AlertControllerUtils.swift in Sources */,
+				D73D7EB11F8653CD00A91E02 /* NSObjectExtension.swift in Sources */,
 				D70C6EC71F83C6B60017D729 /* DataViewController.swift in Sources */,
+				D73D7EAB1F86532100A91E02 /* TouchIDUtils.swift in Sources */,
+				D73D7EAD1F86532100A91E02 /* DateTimeUtils.swift in Sources */,
 				D724F63F1F83C8AC00AB1917 /* SQLiteDB.swift in Sources */,
 				D70C6EC91F83C6B60017D729 /* RootViewController.swift in Sources */,
 				D7A1372B1F839412005F7FF5 /* AppDelegate.swift in Sources */,
