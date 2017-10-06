@@ -26,7 +26,7 @@ class TouchIdUtils : NSObject {
                     })
                 }
                 else {
-                    switch Int32((error as? NSError)!.code) {
+                    switch Int32((error as NSError?)!.code) {
                     // 身份验证失败
                     case kLAErrorAuthenticationFailed:
                         resp.errorCode = kLAErrorAuthenticationFailed

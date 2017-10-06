@@ -121,7 +121,7 @@ struct TimerData {
         self.rightTime = rightTime
         self.repeatDays = repeatDays
     }
-    
+    // get, set
 }
 
 
