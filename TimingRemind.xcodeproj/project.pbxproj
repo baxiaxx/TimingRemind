@@ -10,6 +10,14 @@
 		D70C6EC71F83C6B60017D729 /* DataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D70C6EC41F83C6B60017D729 /* DataViewController.swift */; };
 		D70C6EC81F83C6B60017D729 /* ModelController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D70C6EC51F83C6B60017D729 /* ModelController.swift */; };
 		D70C6EC91F83C6B60017D729 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D70C6EC61F83C6B60017D729 /* RootViewController.swift */; };
+		D7192CFA1F8A2FD500E6A08C /* TenClock.h in Headers */ = {isa = PBXBuildFile; fileRef = D7192CF81F8A2FD500E6A08C /* TenClock.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D7192CFD1F8A2FD500E6A08C /* TenClock.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7192CF61F8A2FD500E6A08C /* TenClock.framework */; };
+		D7192CFE1F8A2FD500E6A08C /* TenClock.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D7192CF61F8A2FD500E6A08C /* TenClock.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D7192D031F8A30A100E6A08C /* AvoidingSubviewScrollViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7192CE81F8A2DE100E6A08C /* AvoidingSubviewScrollViewDelegate.swift */; };
+		D7192D041F8A30A100E6A08C /* Clock.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7192CE91F8A2DE100E6A08C /* Clock.swift */; };
+		D7192D051F8A30A100E6A08C /* CoreAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7192CE71F8A2DE100E6A08C /* CoreAnimation.swift */; };
+		D7192D061F8A30A100E6A08C /* CoreGraphicsExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7192CE31F8A2DE100E6A08C /* CoreGraphicsExtensions.swift */; };
+		D7192D071F8A30A100E6A08C /* DateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7192CE51F8A2DE100E6A08C /* DateExtensions.swift */; };
 		D724F63F1F83C8AC00AB1917 /* SQLiteDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = D724F63B1F83C8AC00AB1917 /* SQLiteDB.swift */; };
 		D724F6401F83C8AC00AB1917 /* String-Extras.swift in Sources */ = {isa = PBXBuildFile; fileRef = D724F63C1F83C8AC00AB1917 /* String-Extras.swift */; };
 		D724F6411F83C8AC00AB1917 /* SQLTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D724F63D1F83C8AC00AB1917 /* SQLTable.swift */; };
@@ -30,10 +38,43 @@
 		D7D619C01F8770870046B145 /* GlobalAppSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7D619BF1F8770870046B145 /* GlobalAppSetting.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		D7192CFB1F8A2FD500E6A08C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D7A1371F1F839411005F7FF5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D7192CF51F8A2FD500E6A08C;
+			remoteInfo = TenClock;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		D7192D021F8A2FD500E6A08C /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				D7192CFE1F8A2FD500E6A08C /* TenClock.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		D70C6EC41F83C6B60017D729 /* DataViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DataViewController.swift; path = TimingRemind/Views/DataViewController.swift; sourceTree = "<group>"; };
 		D70C6EC51F83C6B60017D729 /* ModelController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ModelController.swift; path = TimingRemind/Views/ModelController.swift; sourceTree = "<group>"; };
 		D70C6EC61F83C6B60017D729 /* RootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RootViewController.swift; path = TimingRemind/Views/RootViewController.swift; sourceTree = "<group>"; };
+		D7192CE31F8A2DE100E6A08C /* CoreGraphicsExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreGraphicsExtensions.swift; sourceTree = "<group>"; };
+		D7192CE51F8A2DE100E6A08C /* DateExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateExtensions.swift; sourceTree = "<group>"; };
+		D7192CE71F8A2DE100E6A08C /* CoreAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreAnimation.swift; sourceTree = "<group>"; };
+		D7192CE81F8A2DE100E6A08C /* AvoidingSubviewScrollViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AvoidingSubviewScrollViewDelegate.swift; sourceTree = "<group>"; };
+		D7192CE91F8A2DE100E6A08C /* Clock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Clock.swift; sourceTree = "<group>"; };
+		D7192CEA1F8A2DE100E6A08C /* module.modulemap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.module-map"; path = module.modulemap; sourceTree = "<group>"; };
+		D7192CF61F8A2FD500E6A08C /* TenClock.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TenClock.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D7192CF81F8A2FD500E6A08C /* TenClock.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TenClock.h; sourceTree = "<group>"; };
+		D7192CF91F8A2FD500E6A08C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D724F63B1F83C8AC00AB1917 /* SQLiteDB.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SQLiteDB.swift; sourceTree = "<group>"; };
 		D724F63C1F83C8AC00AB1917 /* String-Extras.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String-Extras.swift"; sourceTree = "<group>"; };
 		D724F63D1F83C8AC00AB1917 /* SQLTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SQLTable.swift; sourceTree = "<group>"; };
@@ -58,11 +99,19 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		D7192CF21F8A2FD500E6A08C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D7A137241F839412005F7FF5 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				D724F6491F83CD4000AB1917 /* libsqlite3.0.tbd in Frameworks */,
+				D7192CFD1F8A2FD500E6A08C /* TenClock.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,6 +127,21 @@
 			);
 			name = Views;
 			path = ..;
+			sourceTree = "<group>";
+		};
+		D7192CF71F8A2FD500E6A08C /* TenClock */ = {
+			isa = PBXGroup;
+			children = (
+				D7192CE81F8A2DE100E6A08C /* AvoidingSubviewScrollViewDelegate.swift */,
+				D7192CE91F8A2DE100E6A08C /* Clock.swift */,
+				D7192CE71F8A2DE100E6A08C /* CoreAnimation.swift */,
+				D7192CE31F8A2DE100E6A08C /* CoreGraphicsExtensions.swift */,
+				D7192CE51F8A2DE100E6A08C /* DateExtensions.swift */,
+				D7192CEA1F8A2DE100E6A08C /* module.modulemap */,
+				D7192CF81F8A2FD500E6A08C /* TenClock.h */,
+				D7192CF91F8A2FD500E6A08C /* Info.plist */,
+			);
+			path = TenClock;
 			sourceTree = "<group>";
 		};
 		D724F63A1F83C88600AB1917 /* SQliteDB */ = {
@@ -140,6 +204,7 @@
 			isa = PBXGroup;
 			children = (
 				D7A137291F839412005F7FF5 /* TimingRemind */,
+				D7192CF71F8A2FD500E6A08C /* TenClock */,
 				D7A137281F839412005F7FF5 /* Products */,
 				D724F6471F83CD4000AB1917 /* Frameworks */,
 			);
@@ -149,6 +214,7 @@
 			isa = PBXGroup;
 			children = (
 				D7A137271F839412005F7FF5 /* TimingRemind.app */,
+				D7192CF61F8A2FD500E6A08C /* TenClock.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -182,7 +248,36 @@
 		};
 /* End PBXGroup section */
 
+/* Begin PBXHeadersBuildPhase section */
+		D7192CF31F8A2FD500E6A08C /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D7192CFA1F8A2FD500E6A08C /* TenClock.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
 /* Begin PBXNativeTarget section */
+		D7192CF51F8A2FD500E6A08C /* TenClock */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D7192CFF1F8A2FD500E6A08C /* Build configuration list for PBXNativeTarget "TenClock" */;
+			buildPhases = (
+				D7192CF11F8A2FD500E6A08C /* Sources */,
+				D7192CF21F8A2FD500E6A08C /* Frameworks */,
+				D7192CF31F8A2FD500E6A08C /* Headers */,
+				D7192CF41F8A2FD500E6A08C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TenClock;
+			productName = TenClock;
+			productReference = D7192CF61F8A2FD500E6A08C /* TenClock.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 		D7A137261F839412005F7FF5 /* TimingRemind */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = D7A1373D1F839412005F7FF5 /* Build configuration list for PBXNativeTarget "TimingRemind" */;
@@ -190,10 +285,12 @@
 				D7A137231F839412005F7FF5 /* Sources */,
 				D7A137241F839412005F7FF5 /* Frameworks */,
 				D7A137251F839412005F7FF5 /* Resources */,
+				D7192D021F8A2FD500E6A08C /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				D7192CFC1F8A2FD500E6A08C /* PBXTargetDependency */,
 			);
 			name = TimingRemind;
 			productName = TimingRemind;
@@ -210,6 +307,10 @@
 				LastUpgradeCheck = 0900;
 				ORGANIZATIONNAME = "Channing Kuo";
 				TargetAttributes = {
+					D7192CF51F8A2FD500E6A08C = {
+						CreatedOnToolsVersion = 9.0;
+						ProvisioningStyle = Automatic;
+					};
 					D7A137261F839412005F7FF5 = {
 						CreatedOnToolsVersion = 9.0;
 						ProvisioningStyle = Automatic;
@@ -230,11 +331,19 @@
 			projectRoot = "";
 			targets = (
 				D7A137261F839412005F7FF5 /* TimingRemind */,
+				D7192CF51F8A2FD500E6A08C /* TenClock */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		D7192CF41F8A2FD500E6A08C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D7A137251F839412005F7FF5 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -249,6 +358,18 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		D7192CF11F8A2FD500E6A08C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D7192D051F8A30A100E6A08C /* CoreAnimation.swift in Sources */,
+				D7192D071F8A30A100E6A08C /* DateExtensions.swift in Sources */,
+				D7192D061F8A30A100E6A08C /* CoreGraphicsExtensions.swift in Sources */,
+				D7192D041F8A30A100E6A08C /* Clock.swift in Sources */,
+				D7192D031F8A30A100E6A08C /* AvoidingSubviewScrollViewDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D7A137231F839412005F7FF5 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -274,6 +395,14 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		D7192CFC1F8A2FD500E6A08C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D7192CF51F8A2FD500E6A08C /* TenClock */;
+			targetProxy = D7192CFB1F8A2FD500E6A08C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
 		D7A137321F839412005F7FF5 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
@@ -294,6 +423,54 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		D7192D001F8A2FD500E6A08C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = TenClock/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Ellusionists.TenClock;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		D7192D011F8A2FD500E6A08C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = TenClock/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Ellusionists.TenClock;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 		D7A1373B1F839412005F7FF5 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -404,6 +581,7 @@
 		D7A1373E1F839412005F7FF5 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = TimingRemind/Info.plist;
@@ -420,6 +598,7 @@
 		D7A1373F1F839412005F7FF5 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = TimingRemind/Info.plist;
@@ -436,6 +615,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		D7192CFF1F8A2FD500E6A08C /* Build configuration list for PBXNativeTarget "TenClock" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D7192D001F8A2FD500E6A08C /* Debug */,
+				D7192D011F8A2FD500E6A08C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		D7A137221F839412005F7FF5 /* Build configuration list for PBXProject "TimingRemind" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

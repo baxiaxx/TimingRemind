@@ -7,18 +7,38 @@
 //
 
 import UIKit
+import TenClock
 
-class DataViewController: UIViewController {
-
+class DataViewController: UIViewController, TenClockDelegate {
+    
     @IBOutlet weak var dataLabel: UILabel!
+    @IBOutlet weak var clock: TenClock!
     var dataObject: String = ""
     
     var timerData: TimerData = TimerData(title: "", leftTime: TimeSpan(upper: 0, lower: 0), rightTime: TimeSpan(upper: 0, lower: 0), repeatDays: Repeat(daysLine: []))
 
-
+    // Clock UI
+    lazy var dateFormatter: DateFormatter = {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "hh:mm a"
+        return dateFormatter
+    }()
+    func timesChanged(_ clock: TenClock, startDate: Date, endDate: Date) -> () {
+        print("start at: \(startDate), end at: \(endDate)")
+    }
+    func timesUpdated(_ clock: TenClock, startDate: Date, endDate: Date) -> () {
+//        self.beginTime.text = dateFormatter.string(from: startDate)
+//        self.endTime.text = dateFormatter.string(from: endDate)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        clock.startDate = Date()
+        clock.endDate = Date().addingTimeInterval(-60 * 60 * 8 )
+        clock.update()
+        clock.delegate = self
     }
 
     override func didReceiveMemoryWarning() {
@@ -56,6 +76,10 @@ class DataViewController: UIViewController {
         let uiController = UIView(frame: CGRect(x: 0, y: 180, width: self.view.bounds.width, height: 310))
         uiController.backgroundColor = .clear
         self.view.addSubview(uiController)
+        
+        clock.frame.origin.y = -12
+        uiController.addSubview(clock)
+        
         let dividerBorder = UIView(frame: CGRect(x: 0, y: 490, width: self.view.bounds.width, height: 1))
         dividerBorder.backgroundColor = UIColor.init(red: 49 / 255, green: 49 / 255, blue: 49 / 255, alpha: 1)
         self.view.addSubview(dividerBorder)
