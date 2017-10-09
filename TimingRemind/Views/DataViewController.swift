@@ -15,28 +15,36 @@ class DataViewController: UIViewController, TenClockDelegate {
     @IBOutlet weak var clock: TenClock!
     var dataObject: String = ""
     
-    var timerData: TimerData = TimerData(title: "", leftTime: TimeSpan(upper: 0, lower: 0), rightTime: TimeSpan(upper: 0, lower: 0), repeatDays: Repeat(daysLine: []))
-
+    var leftTime, rightTime: UILabel?
+    var timerData: TimerData = TimerData(title: "", repeatDays: Repeat(daysLine: []))
+    
     // Clock UI
     lazy var dateFormatter: DateFormatter = {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "hh:mm a"
+        dateFormatter.dateFormat = "HH:mm"
         return dateFormatter
     }()
     func timesChanged(_ clock: TenClock, startDate: Date, endDate: Date) -> () {
         print("start at: \(startDate), end at: \(endDate)")
     }
     func timesUpdated(_ clock: TenClock, startDate: Date, endDate: Date) -> () {
-//        self.beginTime.text = dateFormatter.string(from: startDate)
-//        self.endTime.text = dateFormatter.string(from: endDate)
+        self.leftTime!.text = dateFormatter.string(from: startDate)
+        self.rightTime!.text = dateFormatter.string(from: endDate)
+        
+        self.timerData.leftTime = startDate
+        self.timerData.rightTime = endDate
+        
+        // TODO 更新数据库
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        clock.startDate = Date()
-        clock.endDate = Date().addingTimeInterval(-60 * 60 * 8 )
+        // TODO 从数据库获取当前页面的数据
+        
+        clock.startDate = self.timerData.leftTime
+        clock.endDate = self.timerData.rightTime
         clock.update()
         clock.delegate = self
     }
@@ -59,18 +67,19 @@ class DataViewController: UIViewController, TenClockDelegate {
         self.view.addSubview(timerSpanView)
         
         // TODO 高度20的icon
-        let leftTime = UILabel(frame: CGRect(x: 0, y: 40, width: self.view.bounds.width / 2, height: 55))
-        let rightTime = UILabel(frame: CGRect(x: self.view.bounds.width / 2, y: 40, width: self.view.bounds.width / 2, height: 55))
-        timerSpanView.addSubview(leftTime)
-        timerSpanView.addSubview(rightTime)
-        leftTime.text = "09:00"
-        leftTime.textColor = .white
-        leftTime.textAlignment = .center
-        leftTime.font = UIFont.systemFont(ofSize: 45)
-        rightTime.text = "18:00"
-        rightTime.textColor = .white
-        rightTime.textAlignment = .center
-        rightTime.font = UIFont.systemFont(ofSize: 45)
+        self.leftTime = UILabel(frame: CGRect(x: 0, y: 40, width: self.view.bounds.width / 2, height: 55))
+        self.rightTime = UILabel(frame: CGRect(x: self.view.bounds.width / 2, y: 40, width: self.view.bounds.width / 2, height: 55))
+        timerSpanView.addSubview(leftTime!)
+        timerSpanView.addSubview(rightTime!)
+        leftTime!.text = self.timerData.leftTimeSpan
+        leftTime!.textColor = .white
+        leftTime!.textAlignment = .center
+        leftTime!.font = UIFont.systemFont(ofSize: 45)
+        
+        rightTime!.text = self.timerData.rightTimeSpan
+        rightTime!.textColor = .white
+        rightTime!.textAlignment = .center
+        rightTime!.font = UIFont.systemFont(ofSize: 45)
         
         // UI控制模块 高度310
         let uiController = UIView(frame: CGRect(x: 0, y: 180, width: self.view.bounds.width, height: 310))
@@ -114,8 +123,8 @@ class DataViewController: UIViewController, TenClockDelegate {
         switchController.addSubview(switchName)
         let switchButton = UISwitch()
         switchButton.center = CGPoint(x: self.view.bounds.width - 40, y: 26)
-        switchButton.setOn(true, animated: true)
-        
+        // switch开关打开————检查数据项并存入数据库
+        switchButton.setOn(false, animated: true)
         switchController.addSubview(switchButton)
         
         let rowBorder1 = UIView(frame: CGRect(x: 0, y: 593, width: self.view.bounds.width, height: 1))

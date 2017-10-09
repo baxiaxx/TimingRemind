@@ -21,13 +21,15 @@ import UIKit
 class ModelController: NSObject, UIPageViewControllerDataSource {
 
     var pageData: [String] = []
-
+    var pageStruct: [TimerData] = []
 
     override init() {
         super.init()
         // Create the data model.
         let dateFormatter = DateFormatter()
         pageData = dateFormatter.monthSymbols
+        
+        
     }
 
     func viewControllerAtIndex(_ index: Int, storyboard: UIStoryboard) -> DataViewController? {

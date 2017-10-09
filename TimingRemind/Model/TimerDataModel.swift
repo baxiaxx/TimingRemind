@@ -108,20 +108,58 @@ struct Repeat {
     }
 }
 
+//struct TimerData {
+//    var title: String
+//    var status: Bool = true
+//    var repeatDays: Repeat
+//    var leftTime: TimeSpan
+//    var rightTime: TimeSpan
+//
+//    init(title: String, leftTime: TimeSpan, rightTime: TimeSpan, repeatDays: Repeat) {
+//        self.title = title
+//        self.leftTime = leftTime
+//        self.rightTime = rightTime
+//        self.repeatDays = repeatDays
+//    }
+//    // get, set
+//}
+
 struct TimerData {
-    var title: String
-    var status: Bool = true
-    var repeatDays: Repeat
-    var leftTime: TimeSpan
-    var rightTime: TimeSpan
+    let dateFormatter = DateFormatter()
     
-    init(title: String, leftTime: TimeSpan, rightTime: TimeSpan, repeatDays: Repeat) {
+    var title: String
+    var status: Bool = false
+    var repeatDays: Repeat
+    var leftTime: Date
+    var rightTime: Date
+    
+    init(title: String, repeatDays: Repeat) {
+        self.dateFormatter.dateFormat = "HH:mm"
+        
         self.title = title
-        self.leftTime = leftTime
-        self.rightTime = rightTime
+        
+        let calendar = Calendar.current
+        var components = DateComponents()
+        components.year = 2017
+        components.month = 10
+        components.day = 09
+        components.hour = 09
+        components.minute = 00
+        components.second = 00
+        
+        self.leftTime = calendar.date(from: components)!
+        components.hour = 18
+        self.rightTime = calendar.date(from: components)!
+        
         self.repeatDays = repeatDays
     }
-    // get, set
+    
+    var leftTimeSpan: String {
+        return dateFormatter.string(from: self.leftTime)
+    }
+    var rightTimeSpan: String {
+        return dateFormatter.string(from: self.rightTime)
+    }
 }
 
 
