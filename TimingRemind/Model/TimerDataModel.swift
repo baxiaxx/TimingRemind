@@ -39,8 +39,10 @@ struct TimeSpan {
 struct Repeat {
     var daysLine: [Int]
     
-    init(daysLine: [Int]) {
-        self.daysLine = daysLine.sorted()
+    init(daysLine: String) {
+        let jsonData = daysLine.data(using: String.Encoding.utf8, allowLossyConversion: false)!
+        let jsonStr = try? JSONSerialization.jsonObject(with: jsonData, options: []) as! [Int]
+        self.daysLine = jsonStr!.sorted()
     }
     
     var repeatDaysSpan: String {
@@ -108,22 +110,6 @@ struct Repeat {
     }
 }
 
-//struct TimerData {
-//    var title: String
-//    var status: Bool = true
-//    var repeatDays: Repeat
-//    var leftTime: TimeSpan
-//    var rightTime: TimeSpan
-//
-//    init(title: String, leftTime: TimeSpan, rightTime: TimeSpan, repeatDays: Repeat) {
-//        self.title = title
-//        self.leftTime = leftTime
-//        self.rightTime = rightTime
-//        self.repeatDays = repeatDays
-//    }
-//    // get, set
-//}
-
 struct TimerData {
     let dateFormatter = DateFormatter()
     
@@ -132,6 +118,8 @@ struct TimerData {
     var repeatDays: Repeat
     var leftTime: Date
     var rightTime: Date
+    
+    var id: String = UUID().uuidString
     
     init(title: String, repeatDays: Repeat) {
         self.dateFormatter.dateFormat = "HH:mm"
@@ -159,6 +147,22 @@ struct TimerData {
     }
     var rightTimeSpan: String {
         return dateFormatter.string(from: self.rightTime)
+    }
+    var LeftTime: Date {
+        get {
+            return self.leftTime
+        }
+        set {
+            self.leftTime = newValue
+        }
+    }
+    var RightTime: Date {
+        get {
+            return self.rightTime
+        }
+        set {
+            self.rightTime = newValue
+        }
     }
 }
 

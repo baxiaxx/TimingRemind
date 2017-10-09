@@ -20,34 +20,47 @@ import UIKit
 
 class ModelController: NSObject, UIPageViewControllerDataSource {
 
-    var pageData: [String] = []
     var pageStruct: [TimerData] = []
 
     override init() {
         super.init()
         // Create the data model.
-        let dateFormatter = DateFormatter()
-        pageData = dateFormatter.monthSymbols
-        
-        
+        let tableData = SQliteRepository.getData(tableName: "TIMERREMIND")
+        if tableData.count <= 0 {
+            // 初始化一条默认数据
+            pageStruct = [TimerData(title: "First", repeatDays: Repeat(daysLine: "[]"))]
+        } else {
+            for (_, item) in tableData.enumerated(){
+                var timerData = TimerData(title: (item["title"] as? String)!, repeatDays: Repeat(daysLine: (item["repeatDays"] as? String)!))
+                timerData.LeftTime = (item["leftTime"] as? Date)!
+                timerData.RightTime = (item["rightTime"] as? Date)!
+                
+                pageStruct += [timerData]
+            }
+        }
     }
 
     func viewControllerAtIndex(_ index: Int, storyboard: UIStoryboard) -> DataViewController? {
         // Return the data view controller for the given index.
-        if (self.pageData.count == 0) || (index >= self.pageData.count) {
+        if (self.pageStruct.count == 0) || (index >= self.pageStruct.count) {
             return nil
         }
-
+        
         // Create a new view controller and pass suitable data.
         let dataViewController = storyboard.instantiateViewController(withIdentifier: "DataViewController") as! DataViewController
-        dataViewController.dataObject = self.pageData[index]
+        dataViewController.timerData = self.pageStruct[index]
         return dataViewController
     }
 
     func indexOfViewController(_ viewController: DataViewController) -> Int {
-        // Return the index of the given data view controller.
-        // For simplicity, this implementation uses a static array of model objects and the view controller stores the model object; you can therefore use the model object to identify the index.
-        return pageData.index(of: viewController.dataObject) ?? NSNotFound
+        var pageIndex = -1
+        for (index, item) in pageStruct.enumerated() {
+            if item.id == viewController.timerData.id {
+                pageIndex = index
+                break;
+            }
+        }
+        return pageIndex == -1 ? NSNotFound : pageIndex
     }
 
     // MARK: - Page View Controller Data Source
@@ -69,7 +82,7 @@ class ModelController: NSObject, UIPageViewControllerDataSource {
         }
         
         index += 1
-        if index == self.pageData.count {
+        if index == self.pageStruct.count {
             return nil
         }
         return self.viewControllerAtIndex(index, storyboard: viewController.storyboard!)

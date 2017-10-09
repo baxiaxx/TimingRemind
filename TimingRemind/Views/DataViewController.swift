@@ -13,10 +13,9 @@ class DataViewController: UIViewController, TenClockDelegate {
     
     @IBOutlet weak var dataLabel: UILabel!
     @IBOutlet weak var clock: TenClock!
-    var dataObject: String = ""
     
     var leftTime, rightTime: UILabel?
-    var timerData: TimerData = TimerData(title: "", repeatDays: Repeat(daysLine: []))
+    var timerData: TimerData = TimerData(title: "", repeatDays: Repeat(daysLine: "[]"))
     
     // Clock UI
     lazy var dateFormatter: DateFormatter = {
@@ -40,8 +39,6 @@ class DataViewController: UIViewController, TenClockDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        
-        // TODO 从数据库获取当前页面的数据
         
         clock.startDate = self.timerData.leftTime
         clock.endDate = self.timerData.rightTime
@@ -81,7 +78,7 @@ class DataViewController: UIViewController, TenClockDelegate {
         rightTime!.textAlignment = .center
         rightTime!.font = UIFont.systemFont(ofSize: 45)
         
-        // UI控制模块 高度310
+        // UI控制模块
         let uiController = UIView(frame: CGRect(x: 0, y: 180, width: self.view.bounds.width, height: 310))
         uiController.backgroundColor = .clear
         self.view.addSubview(uiController)
@@ -107,6 +104,7 @@ class DataViewController: UIViewController, TenClockDelegate {
         labelName.textColor = .white
         labelName.textAlignment = .left
         repeatController.addSubview(labelName)
+        // Label + icon
         
         let rowBorder = UIView(frame: CGRect(x: 20, y: 542, width: self.view.bounds.width, height: 1))
         rowBorder.backgroundColor = UIColor.init(red: 49 / 255, green: 49 / 255, blue: 49 / 255, alpha: 1)
@@ -123,7 +121,7 @@ class DataViewController: UIViewController, TenClockDelegate {
         switchController.addSubview(switchName)
         let switchButton = UISwitch()
         switchButton.center = CGPoint(x: self.view.bounds.width - 40, y: 26)
-        // switch开关打开————检查数据项并存入数据库
+        // switch开关打开————检查数据项并存入数据库 + 添加local notification
         switchButton.setOn(false, animated: true)
         switchController.addSubview(switchButton)
         
@@ -131,7 +129,7 @@ class DataViewController: UIViewController, TenClockDelegate {
         rowBorder1.backgroundColor = UIColor.init(red: 49 / 255, green: 49 / 255, blue: 49 / 255, alpha: 1)
         self.view.addSubview(rowBorder1)
         
-        self.dataLabel!.text = dataObject
+        self.dataLabel!.text = timerData.title
     }
 
 
