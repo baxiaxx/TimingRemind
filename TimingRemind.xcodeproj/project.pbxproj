@@ -25,7 +25,6 @@
 		D73D7EA21F86516D00A91E02 /* TimerDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D73D7EA11F86516D00A91E02 /* TimerDataModel.swift */; };
 		D73D7EA91F86532100A91E02 /* ImageUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D73D7EA41F86532100A91E02 /* ImageUtils.swift */; };
 		D73D7EAA1F86532100A91E02 /* SQliteRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D73D7EA51F86532100A91E02 /* SQliteRepository.swift */; };
-		D73D7EAB1F86532100A91E02 /* TouchIDUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D73D7EA61F86532100A91E02 /* TouchIDUtils.swift */; };
 		D73D7EAC1F86532100A91E02 /* AlertControllerUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D73D7EA71F86532100A91E02 /* AlertControllerUtils.swift */; };
 		D73D7EAD1F86532100A91E02 /* DateTimeUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D73D7EA81F86532100A91E02 /* DateTimeUtils.swift */; };
 		D73D7EB11F8653CD00A91E02 /* NSObjectExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D73D7EAF1F8653CD00A91E02 /* NSObjectExtension.swift */; };
@@ -35,6 +34,7 @@
 		D7A137341F839412005F7FF5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D7A137321F839412005F7FF5 /* Main.storyboard */; };
 		D7A137361F839412005F7FF5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D7A137351F839412005F7FF5 /* Assets.xcassets */; };
 		D7A137391F839412005F7FF5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D7A137371F839412005F7FF5 /* LaunchScreen.storyboard */; };
+		D7B14BC31F8B5FB3005127EC /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7B14BC21F8B5FB3005127EC /* TableViewCell.swift */; };
 		D7D619C01F8770870046B145 /* GlobalAppSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7D619BF1F8770870046B145 /* GlobalAppSetting.swift */; };
 /* End PBXBuildFile section */
 
@@ -83,7 +83,6 @@
 		D73D7EA11F86516D00A91E02 /* TimerDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TimerDataModel.swift; path = Model/TimerDataModel.swift; sourceTree = "<group>"; };
 		D73D7EA41F86532100A91E02 /* ImageUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageUtils.swift; path = Utils/ImageUtils.swift; sourceTree = "<group>"; };
 		D73D7EA51F86532100A91E02 /* SQliteRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SQliteRepository.swift; path = Utils/SQliteRepository.swift; sourceTree = "<group>"; };
-		D73D7EA61F86532100A91E02 /* TouchIDUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TouchIDUtils.swift; path = Utils/TouchIDUtils.swift; sourceTree = "<group>"; };
 		D73D7EA71F86532100A91E02 /* AlertControllerUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AlertControllerUtils.swift; path = Utils/AlertControllerUtils.swift; sourceTree = "<group>"; };
 		D73D7EA81F86532100A91E02 /* DateTimeUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DateTimeUtils.swift; path = Utils/DateTimeUtils.swift; sourceTree = "<group>"; };
 		D73D7EAF1F8653CD00A91E02 /* NSObjectExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NSObjectExtension.swift; path = Extensions/NSObjectExtension.swift; sourceTree = "<group>"; };
@@ -95,6 +94,7 @@
 		D7A137351F839412005F7FF5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D7A137381F839412005F7FF5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D7A1373A1F839412005F7FF5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D7B14BC21F8B5FB3005127EC /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TableViewCell.swift; path = TimingRemind/Views/TableViewCell.swift; sourceTree = "<group>"; };
 		D7D619BF1F8770870046B145 /* GlobalAppSetting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GlobalAppSetting.swift; path = Configuration/GlobalAppSetting.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -124,6 +124,7 @@
 				D70C6EC61F83C6B60017D729 /* RootViewController.swift */,
 				D70C6EC41F83C6B60017D729 /* DataViewController.swift */,
 				D70C6EC51F83C6B60017D729 /* ModelController.swift */,
+				D7B14BC21F8B5FB3005127EC /* TableViewCell.swift */,
 			);
 			name = Views;
 			path = ..;
@@ -178,7 +179,6 @@
 				D73D7EA81F86532100A91E02 /* DateTimeUtils.swift */,
 				D73D7EA41F86532100A91E02 /* ImageUtils.swift */,
 				D73D7EA51F86532100A91E02 /* SQliteRepository.swift */,
-				D73D7EA61F86532100A91E02 /* TouchIDUtils.swift */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -375,6 +375,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D70C6EC81F83C6B60017D729 /* ModelController.swift in Sources */,
+				D7B14BC31F8B5FB3005127EC /* TableViewCell.swift in Sources */,
 				D7D619C01F8770870046B145 /* GlobalAppSetting.swift in Sources */,
 				D73D7EAA1F86532100A91E02 /* SQliteRepository.swift in Sources */,
 				D724F6411F83C8AC00AB1917 /* SQLTable.swift in Sources */,
@@ -385,7 +386,6 @@
 				D73D7EAC1F86532100A91E02 /* AlertControllerUtils.swift in Sources */,
 				D73D7EB11F8653CD00A91E02 /* NSObjectExtension.swift in Sources */,
 				D70C6EC71F83C6B60017D729 /* DataViewController.swift in Sources */,
-				D73D7EAB1F86532100A91E02 /* TouchIDUtils.swift in Sources */,
 				D73D7EAD1F86532100A91E02 /* DateTimeUtils.swift in Sources */,
 				D724F63F1F83C8AC00AB1917 /* SQLiteDB.swift in Sources */,
 				D70C6EC91F83C6B60017D729 /* RootViewController.swift in Sources */,

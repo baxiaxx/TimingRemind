@@ -13,9 +13,12 @@ class DataViewController: UIViewController, TenClockDelegate {
     
     @IBOutlet weak var dataLabel: UILabel!
     @IBOutlet weak var clock: TenClock!
+    @IBOutlet weak var addButton: UIButton!
     
+    var repeatView: UIView?
     var leftTime, rightTime: UILabel?
     var timerData: TimerData = TimerData(title: "", repeatDays: Repeat(daysLine: "[]"))
+    var selectedDays: [Int] = []
     
     // Clock UI
     lazy var dateFormatter: DateFormatter = {
@@ -98,15 +101,13 @@ class DataViewController: UIViewController, TenClockDelegate {
         let repeatController = UIView(frame: CGRect(x: 0, y: 0, width: self.view.bounds.width, height: 50))
         repeatController.backgroundColor = .clear
         logicController.addSubview(repeatController)
-        let labelName = UILabel(frame: CGRect(x: 20, y: 0, width: 100, height: 50))
-        labelName.backgroundColor = .clear
-        labelName.text = "重复"
-        labelName.textColor = .white
-        labelName.textAlignment = .left
-        repeatController.addSubview(labelName)
-        // Label + icon
+        let cellView = TableViewCell(style: .default, reuseIdentifier: "repeat")
+        cellView.frame = repeatController.frame
+        cellView.updateUIString(name: "重复", value: timerData.repeatDays.repeatDaysSpan)
+        cellView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(selectTheRepeat(_: ))))
+        repeatController.addSubview(cellView)
         
-        let rowBorder = UIView(frame: CGRect(x: 20, y: 542, width: self.view.bounds.width, height: 1))
+        let rowBorder = UIView(frame: CGRect(x: 20, y: 542, width: self.view.bounds.width - 20, height: 1))
         rowBorder.backgroundColor = UIColor.init(red: 49 / 255, green: 49 / 255, blue: 49 / 255, alpha: 1)
         self.view.addSubview(rowBorder)
         
@@ -120,8 +121,8 @@ class DataViewController: UIViewController, TenClockDelegate {
         switchName.textAlignment = .left
         switchController.addSubview(switchName)
         let switchButton = UISwitch()
-        switchButton.center = CGPoint(x: self.view.bounds.width - 40, y: 26)
-        // switch开关打开————检查数据项并存入数据库 + 添加local notification
+        switchButton.center = CGPoint(x: self.view.bounds.width - 35, y: 26)
+        // TODO switch开关打开————检查数据项并存入数据库 + 添加local notification
         switchButton.setOn(false, animated: true)
         switchController.addSubview(switchButton)
         
@@ -132,6 +133,43 @@ class DataViewController: UIViewController, TenClockDelegate {
         self.dataLabel!.text = timerData.title
     }
 
+    // 选择周期重复选项
+    @objc func selectTheRepeat(_ recognizer: UITapGestureRecognizer) {
+        repeatView = UIView(frame: self.view.frame)
+        repeatView!.backgroundColor = UIColor.init(red: 13 / 255, green: 13 / 255, blue: 13 / 255, alpha: 1)
+        
+        let navigationView = UIView(frame: CGRect(x: 0, y: 0, width: self.view.bounds.width, height: 63))
+        navigationView.backgroundColor = UIColor.init(red: 24 / 255, green: 24 / 255, blue: 24 / 255, alpha: 1)
+        repeatView!.addSubview(navigationView)
+        let close = UIButton(frame: CGRect(x: self.view.bounds.width - 20 - 38, y: 20, width: 43, height: 43))
+        close.setTitle("完成", for: .normal)
+        close.setTitleColor(UIColor.init(red: 1, green: 149 / 255, blue: 0, alpha: 1), for: .normal)
+        close.backgroundColor = .clear
+        close.addTarget(self, action: #selector(closeTheView), for: .touchUpInside)
+        navigationView.addSubview(close)
+        
+        self.view.addSubview(repeatView!)
+        repeatView!.frame.origin.y = self.view.bounds.height
+        let animator = UIViewPropertyAnimator(duration: 0.3, curve: .easeIn){
+            self.repeatView!.frame.origin.y = 0
+        }
+        animator.startAnimation()
+        
+        // TODO 多选cell
+        
+    }
+    
+    @objc func closeTheView() {
+        // TODO 保存周期性选项
+        
+        let animator = UIViewPropertyAnimator(duration: 0.3, curve: .easeOut){
+            self.repeatView!.frame.origin.y = self.view.bounds.height
+        }
+        animator.addCompletion { (position) in
+            self.repeatView!.removeFromSuperview()
+        }
+        animator.startAnimation()
+    }
 
 }
 

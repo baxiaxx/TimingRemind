@@ -16,7 +16,9 @@ class RootViewController: UIViewController, UIPageViewControllerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // TODO 初始化数据库
+        UIApplication.shared.statusBarStyle = UIStatusBarStyle.lightContent
+        
+        // 初始化数据库
         self.initSqlite()
         
         // Do any additional setup after loading the view, typically from a nib.
