@@ -17,6 +17,8 @@ class DataViewController: UIViewController, TenClockDelegate {
     
     var repeatView: UIView?
     var leftTime, rightTime: UILabel?
+    var cellView: TableViewCell?
+    var switchButton: UISwitch?
     var timerData: TimerData = TimerData(title: "", repeatDays: Repeat(daysLine: "[]"))
     var selectedDays: [Int] = []
     
@@ -43,19 +45,7 @@ class DataViewController: UIViewController, TenClockDelegate {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        clock.startDate = self.timerData.leftTime
-        clock.endDate = self.timerData.rightTime
-        clock.update()
         clock.delegate = self
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
         
         let navigationBorder = UIView(frame: CGRect(x: 0, y: 63, width: self.view.bounds.width, height: 1))
         navigationBorder.backgroundColor = UIColor.init(red: 49 / 255, green: 49 / 255, blue: 49 / 255, alpha: 1)
@@ -71,12 +61,10 @@ class DataViewController: UIViewController, TenClockDelegate {
         self.rightTime = UILabel(frame: CGRect(x: self.view.bounds.width / 2, y: 40, width: self.view.bounds.width / 2, height: 55))
         timerSpanView.addSubview(leftTime!)
         timerSpanView.addSubview(rightTime!)
-        leftTime!.text = self.timerData.leftTimeSpan
         leftTime!.textColor = .white
         leftTime!.textAlignment = .center
         leftTime!.font = UIFont.systemFont(ofSize: 45)
         
-        rightTime!.text = self.timerData.rightTimeSpan
         rightTime!.textColor = .white
         rightTime!.textAlignment = .center
         rightTime!.font = UIFont.systemFont(ofSize: 45)
@@ -101,11 +89,9 @@ class DataViewController: UIViewController, TenClockDelegate {
         let repeatController = UIView(frame: CGRect(x: 0, y: 0, width: self.view.bounds.width, height: 50))
         repeatController.backgroundColor = .clear
         logicController.addSubview(repeatController)
-        let cellView = TableViewCell(style: .default, reuseIdentifier: "repeat")
-        cellView.frame = repeatController.frame
-        cellView.updateUIString(name: "重复", value: timerData.repeatDays.repeatDaysSpan)
-        cellView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(selectTheRepeat(_: ))))
-        repeatController.addSubview(cellView)
+        cellView = TableViewCell(style: .default, reuseIdentifier: "repeat")
+        cellView!.frame = repeatController.frame
+        repeatController.addSubview(cellView!)
         
         let rowBorder = UIView(frame: CGRect(x: 20, y: 542, width: self.view.bounds.width - 20, height: 1))
         rowBorder.backgroundColor = UIColor.init(red: 49 / 255, green: 49 / 255, blue: 49 / 255, alpha: 1)
@@ -120,17 +106,37 @@ class DataViewController: UIViewController, TenClockDelegate {
         switchName.textColor = .white
         switchName.textAlignment = .left
         switchController.addSubview(switchName)
-        let switchButton = UISwitch()
-        switchButton.center = CGPoint(x: self.view.bounds.width - 35, y: 26)
-        // TODO switch开关打开————检查数据项并存入数据库 + 添加local notification
-        switchButton.setOn(false, animated: true)
-        switchController.addSubview(switchButton)
+        switchButton = UISwitch()
+        switchButton!.center = CGPoint(x: self.view.bounds.width - 35, y: 26)
+        switchController.addSubview(switchButton!)
         
         let rowBorder1 = UIView(frame: CGRect(x: 0, y: 593, width: self.view.bounds.width, height: 1))
         rowBorder1.backgroundColor = UIColor.init(red: 49 / 255, green: 49 / 255, blue: 49 / 255, alpha: 1)
         self.view.addSubview(rowBorder1)
+    }
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
         self.dataLabel!.text = timerData.title
+        
+        clock.startDate = self.timerData.leftTime
+        clock.endDate = self.timerData.rightTime
+        clock.update()
+        
+        leftTime!.text = self.timerData.leftTimeSpan
+        rightTime!.text = self.timerData.rightTimeSpan
+        
+        cellView!.updateUIString(name: "重复", value: timerData.repeatDays.repeatDaysSpan)
+        cellView!.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(selectTheRepeat(_: ))))
+        
+        // TODO switch开关打开————检查数据项并存入数据库 + 添加local notification
+        switchButton!.setOn(false, animated: true)
     }
 
     // 选择周期重复选项
