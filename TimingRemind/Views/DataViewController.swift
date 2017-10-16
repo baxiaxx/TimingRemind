@@ -135,8 +135,21 @@ class DataViewController: UIViewController, TenClockDelegate {
         cellView!.updateUIString(name: "重复", value: timerData.repeatDays.repeatDaysSpan)
         cellView!.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(selectTheRepeat(_: ))))
         
-        // TODO switch开关打开————检查数据项并存入数据库 + 添加local notification
+        
         switchButton!.setOn(false, animated: true)
+        
+        switchButton!.addTarget(self, action: #selector(openNotification), for: UIControlEvents.touchUpInside)
+    }
+    
+    // 本地通知处理方法 witch开关控制————检查数据项并存入数据库 + 添加local notification
+    @objc func openNotification() {
+        if switchButton!.isOn {
+            // 打开
+            print(1)
+        } else {
+            // 关闭
+            print(2)
+        }
     }
 
     // 选择周期重复选项
