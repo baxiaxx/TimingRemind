@@ -8,6 +8,7 @@
 
 import UIKit
 import TenClock
+import UserNotifications
 
 class DataViewController: UIViewController, TenClockDelegate {
     
@@ -19,7 +20,7 @@ class DataViewController: UIViewController, TenClockDelegate {
     var leftTime, rightTime: UILabel?
     var cellView: TableViewCell?
     var switchButton: UISwitch?
-    var timerData: TimerData = TimerData(title: "", repeatDays: Repeat(daysLine: "[]"))
+    var timerData: TimerData = TimerData(title: "", repeatDays: Repeat(daysLine: "[]"), id: "")
     var selectedDays: [Int] = []
     
     // Clock UI
@@ -44,6 +45,14 @@ class DataViewController: UIViewController, TenClockDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound]) { (success, error) in
+            if success {
+                print("success")
+            } else {
+                print("error")
+            }
+        }
         
         clock.delegate = self
         

@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D70610A81F97378B001E3943 /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D70610A71F97378A001E3943 /* UserNotifications.framework */; };
+		D70610AD1F9787B0001E3943 /* test.png in Resources */ = {isa = PBXBuildFile; fileRef = D70610AC1F9787B0001E3943 /* test.png */; };
+		D70610AF1F9796F8001E3943 /* LocalUserNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = D70610AE1F9796F8001E3943 /* LocalUserNotification.swift */; };
 		D70C6EC71F83C6B60017D729 /* DataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D70C6EC41F83C6B60017D729 /* DataViewController.swift */; };
 		D70C6EC81F83C6B60017D729 /* ModelController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D70C6EC51F83C6B60017D729 /* ModelController.swift */; };
 		D70C6EC91F83C6B60017D729 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D70C6EC61F83C6B60017D729 /* RootViewController.swift */; };
@@ -63,6 +66,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		D70610A71F97378A001E3943 /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
+		D70610AC1F9787B0001E3943 /* test.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = test.png; path = Resource/test.png; sourceTree = "<group>"; };
+		D70610AE1F9796F8001E3943 /* LocalUserNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LocalUserNotification.swift; path = Utils/LocalUserNotification.swift; sourceTree = "<group>"; };
 		D70C6EC41F83C6B60017D729 /* DataViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DataViewController.swift; path = TimingRemind/Views/DataViewController.swift; sourceTree = "<group>"; };
 		D70C6EC51F83C6B60017D729 /* ModelController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ModelController.swift; path = TimingRemind/Views/ModelController.swift; sourceTree = "<group>"; };
 		D70C6EC61F83C6B60017D729 /* RootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RootViewController.swift; path = TimingRemind/Views/RootViewController.swift; sourceTree = "<group>"; };
@@ -110,6 +116,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D70610A81F97378B001E3943 /* UserNotifications.framework in Frameworks */,
 				D724F6491F83CD4000AB1917 /* libsqlite3.0.tbd in Frameworks */,
 				D7192CFD1F8A2FD500E6A08C /* TenClock.framework in Frameworks */,
 			);
@@ -159,6 +166,7 @@
 		D724F6471F83CD4000AB1917 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D70610A71F97378A001E3943 /* UserNotifications.framework */,
 				D724F6481F83CD4000AB1917 /* libsqlite3.0.tbd */,
 			);
 			name = Frameworks;
@@ -179,6 +187,7 @@
 				D73D7EA81F86532100A91E02 /* DateTimeUtils.swift */,
 				D73D7EA41F86532100A91E02 /* ImageUtils.swift */,
 				D73D7EA51F86532100A91E02 /* SQliteRepository.swift */,
+				D70610AE1F9796F8001E3943 /* LocalUserNotification.swift */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -195,6 +204,7 @@
 		D73D7EB61F86635600A91E02 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				D70610AC1F9787B0001E3943 /* test.png */,
 				D73D7EB71F86639100A91E02 /* data.db */,
 			);
 			name = Resource;
@@ -349,6 +359,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D7A137391F839412005F7FF5 /* LaunchScreen.storyboard in Resources */,
+				D70610AD1F9787B0001E3943 /* test.png in Resources */,
 				D73D7EB81F86639100A91E02 /* data.db in Resources */,
 				D7A137361F839412005F7FF5 /* Assets.xcassets in Resources */,
 				D7A137341F839412005F7FF5 /* Main.storyboard in Resources */,
@@ -381,6 +392,7 @@
 				D724F6411F83C8AC00AB1917 /* SQLTable.swift in Sources */,
 				D73D7EA91F86532100A91E02 /* ImageUtils.swift in Sources */,
 				D724F6401F83C8AC00AB1917 /* String-Extras.swift in Sources */,
+				D70610AF1F9796F8001E3943 /* LocalUserNotification.swift in Sources */,
 				D73D7EA21F86516D00A91E02 /* TimerDataModel.swift in Sources */,
 				D73D7EB21F8653CD00A91E02 /* NSDateExtension.swift in Sources */,
 				D73D7EAC1F86532100A91E02 /* AlertControllerUtils.swift in Sources */,

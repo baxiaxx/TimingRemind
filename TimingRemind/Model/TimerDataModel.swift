@@ -121,10 +121,11 @@ struct TimerData {
     
     var id: String = UUID().uuidString
     
-    init(title: String, repeatDays: Repeat) {
+    init(title: String, repeatDays: Repeat, id: String) {
         self.dateFormatter.dateFormat = "HH:mm"
         
         self.title = title
+        self.id = id
         
         let calendar = Calendar.current
         var components = DateComponents()

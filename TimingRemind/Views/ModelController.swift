@@ -28,10 +28,10 @@ class ModelController: NSObject, UIPageViewControllerDataSource {
         let tableData = SQliteRepository.getData(tableName: "TIMERREMIND")
         if tableData.count <= 0 {
             // 初始化一条默认数据
-            pageStruct = [TimerData(title: "First", repeatDays: Repeat(daysLine: "[]"))]
+            pageStruct = [TimerData(title: "First", repeatDays: Repeat(daysLine: "[]"), id: "")]
         } else {
             for (_, item) in tableData.enumerated(){
-                var timerData = TimerData(title: (item["title"] as? String)!, repeatDays: Repeat(daysLine: (item["repeatDays"] as? String)!))
+                var timerData = TimerData(title: (item["title"] as? String)!, repeatDays: Repeat(daysLine: (item["repeatDays"] as? String)!), id: (item["TIMERREMINDId"] as? String)!)
                 timerData.LeftTime = (item["leftTime"] as? Date)!
                 timerData.RightTime = (item["rightTime"] as? Date)!
                 
