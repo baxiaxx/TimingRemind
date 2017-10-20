@@ -58,7 +58,8 @@ class RootViewController: UIViewController, UIPageViewControllerDelegate {
         let col3 = ColumnType(colName: "leftTime", colType: "datetime", colValue: nil)
         let col4 = ColumnType(colName: "rightTime", colType: "datetime", colValue: nil)
         let col5 = ColumnType(colName: "status", colType: "BOOL", colValue: nil)
-        timerRemind += [col1, col2, col3, col4, col5]
+        let col6 = ColumnType(colName: "identity", colType: "varchar(100)", colValue: nil)
+        timerRemind += [col1, col2, col3, col4, col5, col6]
         SQliteRepository.createTable(tableName: "TIMERREMIND", columns: timerRemind)
     }
 

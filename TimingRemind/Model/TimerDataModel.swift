@@ -116,16 +116,15 @@ struct TimerData {
     var title: String
     var status: Bool = false
     var repeatDays: Repeat
-    var leftTime: Date
-    var rightTime: Date
+    private var leftTime: Date
+    private var rightTime: Date
     
-    var id: String = UUID().uuidString
+    private var id: String = ""
     
-    init(title: String, repeatDays: Repeat, id: String) {
+    init(title: String, repeatDays: Repeat) {
         self.dateFormatter.dateFormat = "HH:mm"
         
         self.title = title
-        self.id = id
         
         let calendar = Calendar.current
         var components = DateComponents()
@@ -141,6 +140,15 @@ struct TimerData {
         self.rightTime = calendar.date(from: components)!
         
         self.repeatDays = repeatDays
+    }
+    
+    var identity: String {
+        get {
+            return self.id
+        }
+        set {
+            self.id = newValue
+        }
     }
     
     var leftTimeSpan: String {

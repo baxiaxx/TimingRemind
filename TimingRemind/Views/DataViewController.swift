@@ -20,7 +20,7 @@ class DataViewController: UIViewController, TenClockDelegate {
     var leftTime, rightTime: UILabel?
     var cellView: TableViewCell?
     var switchButton: UISwitch?
-    var timerData: TimerData = TimerData(title: "", repeatDays: Repeat(daysLine: "[]"), id: "")
+    var timerData: TimerData = TimerData(title: "", repeatDays: Repeat(daysLine: "[]"))
     var selectedDays: [Int] = []
     
     // Clock UI
@@ -36,8 +36,8 @@ class DataViewController: UIViewController, TenClockDelegate {
         self.leftTime!.text = dateFormatter.string(from: startDate)
         self.rightTime!.text = dateFormatter.string(from: endDate)
         
-        self.timerData.leftTime = startDate
-        self.timerData.rightTime = endDate
+        self.timerData.LeftTime = startDate
+        self.timerData.RightTime = endDate
         
         // TODO 更新数据库
     }
@@ -46,6 +46,7 @@ class DataViewController: UIViewController, TenClockDelegate {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
+        // 询问通知权限
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound]) { (success, error) in
             if success {
                 print("success")
@@ -134,8 +135,8 @@ class DataViewController: UIViewController, TenClockDelegate {
         
         self.dataLabel!.text = timerData.title
         
-        clock.startDate = self.timerData.leftTime
-        clock.endDate = self.timerData.rightTime
+        clock.startDate = self.timerData.LeftTime
+        clock.endDate = self.timerData.RightTime
         clock.update()
         
         leftTime!.text = self.timerData.leftTimeSpan
@@ -155,6 +156,30 @@ class DataViewController: UIViewController, TenClockDelegate {
         if switchButton!.isOn {
             // 打开
             print(1)
+            
+            let content = UNMutableNotificationContent()
+            content.title = "Notification Tutorial"
+            content.body = " Notification triggered"
+            // 2
+            guard let imageURL = Bundle.main.url(forResource: "test", withExtension: "png")
+                else {
+                    print("err")
+                    return
+            }
+            let attachment = try! UNNotificationAttachment(identifier: "test", url: imageURL, options: .none)
+            content.attachments = [attachment]
+            // 3
+//            var components = DateComponents()
+//            components.weekday = 2
+//            components.hour = 8
+            
+            let calendarNow = Calendar.current
+            let leftDate = calendarNow.dateComponents([.hour, .minute], from: self.timerData.LeftTime)
+            
+            let trigger1 = UNCalendarNotificationTrigger(dateMatching: leftDate, repeats: false)
+            let request = UNNotificationRequest(identifier: "notification.id.01", content: content, trigger: trigger1)
+            // 4
+            UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
         } else {
             // 关闭
             print(2)

@@ -28,12 +28,14 @@ class ModelController: NSObject, UIPageViewControllerDataSource {
         let tableData = SQliteRepository.getData(tableName: "TIMERREMIND")
         if tableData.count <= 0 {
             // 初始化一条默认数据
-            pageStruct = [TimerData(title: "First", repeatDays: Repeat(daysLine: "[]"), id: "")]
+            pageStruct = [TimerData(title: "First", repeatDays: Repeat(daysLine: "[]"))]
+            pageStruct[0].identity = UUID().uuidString
         } else {
             for (_, item) in tableData.enumerated(){
-                var timerData = TimerData(title: (item["title"] as? String)!, repeatDays: Repeat(daysLine: (item["repeatDays"] as? String)!), id: (item["TIMERREMINDId"] as? String)!)
+                var timerData = TimerData(title: (item["title"] as? String)!, repeatDays: Repeat(daysLine: (item["repeatDays"] as? String)!))
                 timerData.LeftTime = (item["leftTime"] as? Date)!
                 timerData.RightTime = (item["rightTime"] as? Date)!
+                timerData.identity = (item["identity"] as? String)!
                 
                 pageStruct += [timerData]
             }
@@ -55,7 +57,7 @@ class ModelController: NSObject, UIPageViewControllerDataSource {
     func indexOfViewController(_ viewController: DataViewController) -> Int {
         var pageIndex = -1
         for (index, item) in pageStruct.enumerated() {
-            if item.id == viewController.timerData.id {
+            if item.identity == viewController.timerData.identity {
                 pageIndex = index
                 break;
             }
