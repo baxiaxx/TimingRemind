@@ -9,27 +9,64 @@
 import Foundation
 import UserNotifications
 
-class LocalUserNotification: NSObject {
-    class func test(){
-        let content = UNMutableNotificationContent()
-        content.title = "Notification Tutorial"
-        content.body = " Notification triggered"
-        // 2
-        guard let imageURL = Bundle.main.url(forResource: "test", withExtension: "png")
-            else {
-                print("err")
-                return
+class LocalUserNotification {
+    private var notificationContent: UNMutableNotificationContent
+    private var repeatDays: [Int]
+    private var leftDate, rightDate: DateComponents
+    
+    private var identity: String
+    
+    private let calendarNow = Calendar.current
+    
+    init(timerData: TimerData) {
+        self.notificationContent = UNMutableNotificationContent()
+        self.notificationContent.title = timerData.title
+        self.repeatDays = timerData.repeatDays.daysLine
+        self.identity = timerData.identity
+        
+        self.leftDate = self.calendarNow.dateComponents([.hour, .minute], from: timerData.LeftTime)
+        self.rightDate = self.calendarNow.dateComponents([.hour, .minute], from: timerData.RightTime)
+    }
+    
+    func setupNotification() {
+        if self.repeatDays.count <= 0 {
+            let leftTrigger = UNCalendarNotificationTrigger(dateMatching: self.leftDate, repeats: false)
+            let rightTrigger = UNCalendarNotificationTrigger(dateMatching: self.rightDate, repeats: false)
+            
+            let leftRequest = UNNotificationRequest(identifier: self.identity + "L", content: self.notificationContent, trigger: leftTrigger)
+            let rightRequest = UNNotificationRequest(identifier: self.identity + "R", content: self.notificationContent, trigger: rightTrigger)
+            
+            UNUserNotificationCenter.current().add(leftRequest, withCompletionHandler: nil)
+            UNUserNotificationCenter.current().add(rightRequest, withCompletionHandler: nil)
+        } else {
+            for (day, index) in self.repeatDays.enumerated() {
+                self.leftDate.weekday = day
+                self.rightDate.weekday = day
+                
+                let leftTrigger = UNCalendarNotificationTrigger(dateMatching: self.leftDate, repeats: true)
+                let rightTrigger = UNCalendarNotificationTrigger(dateMatching: self.rightDate, repeats: true)
+                
+                let leftRequest = UNNotificationRequest(identifier: self.identity + "L_\(index)", content: self.notificationContent, trigger: leftTrigger)
+                let rightRequest = UNNotificationRequest(identifier: self.identity + "R_\(index)", content: self.notificationContent, trigger: rightTrigger)
+                
+                UNUserNotificationCenter.current().add(leftRequest, withCompletionHandler: nil)
+                UNUserNotificationCenter.current().add(rightRequest, withCompletionHandler: nil)
+            }
         }
-        let attachment = try! UNNotificationAttachment(identifier: "test", url: imageURL, options: .none)
-        content.attachments = [attachment]
-        // 3
-        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 10, repeats: false)
-        var components = DateComponents()
-        components.weekday = 2
-        components.hour = 8
-        let trigger1 = UNCalendarNotificationTrigger(dateMatching: components, repeats: true)
-        let request = UNNotificationRequest(identifier: "notification.id.01", content: content, trigger: trigger)
-        // 4
-        UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
