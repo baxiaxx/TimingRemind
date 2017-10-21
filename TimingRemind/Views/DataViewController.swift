@@ -39,7 +39,10 @@ class DataViewController: UIViewController, TenClockDelegate {
         self.timerData.LeftTime = startDate
         self.timerData.RightTime = endDate
         
-        // TODO 更新数据库
+        // 更新数据库
+        saveTheDate()
+        
+        // TODO 变更通知
     }
     
     override func viewDidLoad() {
@@ -146,7 +149,7 @@ class DataViewController: UIViewController, TenClockDelegate {
         cellView!.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(selectTheRepeat(_: ))))
         
         
-        switchButton!.setOn(false, animated: true)
+        switchButton!.setOn(self.timerData.status, animated: true)
         
         switchButton!.addTarget(self, action: #selector(openNotification), for: UIControlEvents.touchUpInside)
     }
@@ -156,14 +159,14 @@ class DataViewController: UIViewController, TenClockDelegate {
         self.timerData.status = switchButton!.isOn
         // 存储数据
         saveTheDate()
-
+        
         if switchButton!.isOn {
             // 开启通知
 //            let localNotification = LocalUserNotification(timerData: self.timerData)
 //            localNotification.setupNotification()
         } else {
             // 关闭通知
-            print(2)
+            
         }
     }
 
@@ -218,7 +221,8 @@ class DataViewController: UIViewController, TenClockDelegate {
         let col3 = ColumnType(colName: "rightTime", colType: nil, colValue: self.timerData.RightTime)
         let col4 = ColumnType(colName: "status", colType: nil, colValue: self.timerData.status)
         let col5 = ColumnType(colName: "identity", colType: nil, colValue: self.timerData.identity)
-        info += [col0, col1, col2, col3, col4, col5]
+        let col6 = ColumnType(colName: "TIMERREMINDId", colType: nil, colValue: self.timerData.pk)
+        info += [col0, col1, col2, col3, col4, col5, col6]
         _ = SQliteRepository.addOrUpdate(tableName: "TIMERREMIND", colValue: info)
     }
 }

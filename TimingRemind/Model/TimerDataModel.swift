@@ -121,6 +121,8 @@ struct TimerData {
     
     private var id: String = ""
     
+    var pk: String = ""
+    
     init(title: String, repeatDays: Repeat) {
         self.dateFormatter.dateFormat = "HH:mm"
         

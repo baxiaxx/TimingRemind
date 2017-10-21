@@ -36,6 +36,8 @@ class ModelController: NSObject, UIPageViewControllerDataSource {
                 timerData.LeftTime = (item["leftTime"] as? Date)!
                 timerData.RightTime = (item["rightTime"] as? Date)!
                 timerData.identity = (item["identity"] as? String)!
+                timerData.status = (item["status"] as? Int)! == 0
+                timerData.pk = (item["TIMERREMINDId"] as? String)!
                 
                 pageStruct += [timerData]
             }
