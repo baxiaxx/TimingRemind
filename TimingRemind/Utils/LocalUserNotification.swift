@@ -11,6 +11,8 @@ import UserNotifications
 
 class LocalUserNotification {
     private var notificationContent: UNMutableNotificationContent
+    private var notificationCenter: UNUserNotificationCenter
+    
     private var repeatDays: [Int]
     private var leftDate, rightDate: DateComponents
     
@@ -20,6 +22,8 @@ class LocalUserNotification {
     
     init(timerData: TimerData) {
         self.notificationContent = UNMutableNotificationContent()
+        self.notificationCenter = UNUserNotificationCenter.current()
+        
         self.notificationContent.title = timerData.title
         self.repeatDays = timerData.repeatDays.daysLine
         self.identity = timerData.identity
@@ -36,8 +40,8 @@ class LocalUserNotification {
             let leftRequest = UNNotificationRequest(identifier: self.identity + "L", content: self.notificationContent, trigger: leftTrigger)
             let rightRequest = UNNotificationRequest(identifier: self.identity + "R", content: self.notificationContent, trigger: rightTrigger)
             
-            UNUserNotificationCenter.current().add(leftRequest, withCompletionHandler: nil)
-            UNUserNotificationCenter.current().add(rightRequest, withCompletionHandler: nil)
+            self.notificationCenter.add(leftRequest, withCompletionHandler: nil)
+            self.notificationCenter.add(rightRequest, withCompletionHandler: nil)
         } else {
             for (day, index) in self.repeatDays.enumerated() {
                 self.leftDate.weekday = day
@@ -49,9 +53,24 @@ class LocalUserNotification {
                 let leftRequest = UNNotificationRequest(identifier: self.identity + "L_\(index)", content: self.notificationContent, trigger: leftTrigger)
                 let rightRequest = UNNotificationRequest(identifier: self.identity + "R_\(index)", content: self.notificationContent, trigger: rightTrigger)
                 
-                UNUserNotificationCenter.current().add(leftRequest, withCompletionHandler: nil)
-                UNUserNotificationCenter.current().add(rightRequest, withCompletionHandler: nil)
+                self.notificationCenter.add(leftRequest, withCompletionHandler: nil)
+                self.notificationCenter.add(rightRequest, withCompletionHandler: nil)
             }
         }
+    }
+    
+    func shutdownNotification(identifier: String) {
+        self.notificationCenter.getPendingNotificationRequests { (requestArray: [UNNotificationRequest]) in
+            for item in requestArray {
+                // 根据identifiers移除指定通知
+                if item.identifier == identifier {
+                    self.notificationCenter.removeDeliveredNotifications(withIdentifiers: [identifier])
+                }
+            }
+        }
+    }
+    
+    func shutdownAll() {
+        self.notificationCenter.removeAllPendingNotificationRequests()
     }
 }
