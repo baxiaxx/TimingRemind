@@ -9,6 +9,8 @@
 import Foundation
 import UserNotifications
 
+
+/// 本地通知操作类
 class LocalUserNotification {
     private var notificationContent: UNMutableNotificationContent
     private var notificationCenter: UNUserNotificationCenter
@@ -32,8 +34,10 @@ class LocalUserNotification {
         self.rightDate = self.calendarNow.dateComponents([.hour, .minute], from: timerData.RightTime)
     }
     
+    /// 添加通知
     func setupNotification() {
         if self.repeatDays.count <= 0 {
+            // TODO 检查是否已经存在通知
             let leftTrigger = UNCalendarNotificationTrigger(dateMatching: self.leftDate, repeats: false)
             let rightTrigger = UNCalendarNotificationTrigger(dateMatching: self.rightDate, repeats: false)
             
@@ -59,6 +63,19 @@ class LocalUserNotification {
         }
     }
     
+    
+    /// 检查系统中是否存在相同的通知
+    ///
+    /// - Parameter identifier: 通知标识id
+    /// - Returns: true or false
+    func checkExist(identifier: String) -> Bool {
+        
+        return true
+    }
+    
+    /// 注销通知
+    ///
+    /// - Parameter identifier: 通知标识id
     func shutdownNotification(identifier: String) {
         self.notificationCenter.getPendingNotificationRequests { (requestArray: [UNNotificationRequest]) in
             for item in requestArray {
@@ -70,6 +87,7 @@ class LocalUserNotification {
         }
     }
     
+    /// 注销所有通知
     func shutdownAll() {
         self.notificationCenter.removeAllPendingNotificationRequests()
     }
