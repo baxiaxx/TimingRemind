@@ -153,35 +153,16 @@ class DataViewController: UIViewController, TenClockDelegate {
     
     // 本地通知处理方法 witch开关控制————检查数据项并存入数据库 + 添加local notification
     @objc func openNotification() {
+        self.timerData.status = switchButton!.isOn
+        // 存储数据
+        saveTheDate()
+
         if switchButton!.isOn {
-            // 打开
-            print(1)
-            
-            let content = UNMutableNotificationContent()
-            content.title = "Notification Tutorial"
-            content.body = " Notification triggered"
-            // 2
-            guard let imageURL = Bundle.main.url(forResource: "test", withExtension: "png")
-                else {
-                    print("err")
-                    return
-            }
-            let attachment = try! UNNotificationAttachment(identifier: "test", url: imageURL, options: .none)
-            content.attachments = [attachment]
-            // 3
-//            var components = DateComponents()
-//            components.weekday = 2
-//            components.hour = 8
-            
-            let calendarNow = Calendar.current
-            let leftDate = calendarNow.dateComponents([.hour, .minute], from: self.timerData.LeftTime)
-            
-            let trigger1 = UNCalendarNotificationTrigger(dateMatching: leftDate, repeats: false)
-            let request = UNNotificationRequest(identifier: "notification.id.01", content: content, trigger: trigger1)
-            // 4
-            UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
+            // 开启通知
+//            let localNotification = LocalUserNotification(timerData: self.timerData)
+//            localNotification.setupNotification()
         } else {
-            // 关闭
+            // 关闭通知
             print(2)
         }
     }
@@ -223,6 +204,22 @@ class DataViewController: UIViewController, TenClockDelegate {
         }
         animator.startAnimation()
     }
-
+    
+    // 存数据库
+    func saveTheDate() {
+        var info = [ColumnType]()
+        let col0 = ColumnType(colName: "title", colType: nil, colValue: self.timerData.title)
+        
+        let jsonData = try? JSONSerialization.data(withJSONObject: self.timerData.repeatDays.daysLine, options: [])
+        let jsonStr = String(data: jsonData!, encoding: String.Encoding.utf8)
+        let col1 = ColumnType(colName: "repeatDays", colType: nil, colValue: jsonStr)
+        
+        let col2 = ColumnType(colName: "leftTime", colType: nil, colValue: self.timerData.LeftTime)
+        let col3 = ColumnType(colName: "rightTime", colType: nil, colValue: self.timerData.RightTime)
+        let col4 = ColumnType(colName: "status", colType: nil, colValue: self.timerData.status)
+        let col5 = ColumnType(colName: "identity", colType: nil, colValue: self.timerData.identity)
+        info += [col0, col1, col2, col3, col4, col5]
+        _ = SQliteRepository.addOrUpdate(tableName: "TIMERREMIND", colValue: info)
+    }
 }
 
