@@ -193,7 +193,20 @@ class DataViewController: UIViewController, TenClockDelegate {
         animator.startAnimation()
         
         // TODO 多选cell
-        
+        let sunday = UIButton()
+        let monday = UIButton()
+        let tuesday = UIButton()
+        let wednesday = UIButton()
+        let thursday = UIButton()
+        let friday = UIButton()
+        let staturday = UIButton()
+        repeatView!.addSubview(sunday)
+        repeatView!.addSubview(monday)
+        repeatView!.addSubview(tuesday)
+        repeatView!.addSubview(wednesday)
+        repeatView!.addSubview(thursday)
+        repeatView!.addSubview(friday)
+        repeatView!.addSubview(staturday)
     }
     
     @objc func closeTheView() {
