@@ -14,7 +14,6 @@ class DataViewController: UIViewController, TenClockDelegate {
     
     @IBOutlet weak var dataLabel: UILabel!
     @IBOutlet weak var clock: TenClock!
-    @IBOutlet weak var addButton: UIButton!
     
     var repeatView: UIView?
     var leftTime, rightTime: UILabel?
@@ -43,6 +42,14 @@ class DataViewController: UIViewController, TenClockDelegate {
         saveTheDate()
         
         // TODO 变更通知
+    }
+    
+    
+    /// 新增TimerReimd
+    ///
+    /// - Parameter sender: Any
+    @IBAction func addNewRemind(_ sender: Any) {
+        
     }
     
     override func viewDidLoad() {

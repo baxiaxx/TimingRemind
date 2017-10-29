@@ -28,7 +28,7 @@ class ModelController: NSObject, UIPageViewControllerDataSource {
         let tableData = SQliteRepository.getData(tableName: "TIMERREMIND")
         if tableData.count <= 0 {
             // 初始化一条默认数据
-            pageStruct = [TimerData(title: "First", repeatDays: Repeat(daysLine: "[]"))]
+            pageStruct = [TimerData(title: "Click to set title", repeatDays: Repeat(daysLine: "[]"))]
             pageStruct[0].identity = UUID().uuidString
         } else {
             for (_, item) in tableData.enumerated(){
@@ -66,6 +66,20 @@ class ModelController: NSObject, UIPageViewControllerDataSource {
         }
         return pageIndex == -1 ? NSNotFound : pageIndex
     }
+    
+    
+    /// 检查数据库中是否已经保存
+    ///
+    /// - Parameter identity: key
+    /// - Returns: true or false
+    func checkIsExist(identity: String) -> Bool {
+        let sql = "select top 1 * from TIMERREMIND where identity = '\(identity)'"
+        let dataTable = SQliteRepository.sqlExcute(sql: sql)
+        if dataTable.count <= 0 {
+            return false
+        }
+        return true
+    }
 
     // MARK: - Page View Controller Data Source
 
@@ -86,8 +100,14 @@ class ModelController: NSObject, UIPageViewControllerDataSource {
         }
         
         index += 1
-        if index == self.pageStruct.count {
+        // 一次只能添加一项新的
+        if index == self.pageStruct.count && !checkIsExist(identity: self.pageStruct[index - 1].identity) {
             return nil
+        }
+        if index == self.pageStruct.count {
+            var newRemind = TimerData(title: "Click to set title", repeatDays: Repeat(daysLine: "[]"))
+            newRemind.identity = UUID().uuidString
+            self.pageStruct.append(newRemind)
         }
         return self.viewControllerAtIndex(index, storyboard: viewController.storyboard!)
     }
