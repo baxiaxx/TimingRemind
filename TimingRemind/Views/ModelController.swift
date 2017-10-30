@@ -73,7 +73,7 @@ class ModelController: NSObject, UIPageViewControllerDataSource {
     /// - Parameter identity: key
     /// - Returns: true or false
     func checkIsExist(identity: String) -> Bool {
-        let sql = "select top 1 * from TIMERREMIND where identity = '\(identity)'"
+        let sql = "select * from TIMERREMIND where identity = '\(identity)'"
         let dataTable = SQliteRepository.sqlExcute(sql: sql)
         if dataTable.count <= 0 {
             return false

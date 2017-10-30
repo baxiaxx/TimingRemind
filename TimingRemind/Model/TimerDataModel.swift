@@ -55,13 +55,13 @@ struct Repeat {
                 return "永不"
             }
             if Repeat.arrayIsEqual(firstArray: self.daysLine, secondArray: everyday) {
-                return "工作日"
+                return "每天"
             }
             if Repeat.arrayIsEqual(firstArray: self.daysLine, secondArray: workdays) {
-                return "周末"
+                return "工作日"
             }
             if Repeat.arrayIsEqual(firstArray: self.daysLine, secondArray: weekdays) {
-                return "每天"
+                return "周末"
             }
             
             var repeatString: String = ""

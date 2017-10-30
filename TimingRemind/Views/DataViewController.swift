@@ -44,14 +44,6 @@ class DataViewController: UIViewController, TenClockDelegate {
         // TODO 变更通知
     }
     
-    
-    /// 新增TimerReimd
-    ///
-    /// - Parameter sender: Any
-    @IBAction func addNewRemind(_ sender: Any) {
-        
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -177,7 +169,10 @@ class DataViewController: UIViewController, TenClockDelegate {
         }
     }
 
-    // 选择周期重复选项
+    
+    /// 选择周期重复选项
+    ///
+    /// - Parameter recognizer: Tap click
     @objc func selectTheRepeat(_ recognizer: UITapGestureRecognizer) {
         repeatView = UIView(frame: self.view.frame)
         repeatView!.backgroundColor = UIColor.init(red: 13 / 255, green: 13 / 255, blue: 13 / 255, alpha: 1)
@@ -188,6 +183,7 @@ class DataViewController: UIViewController, TenClockDelegate {
         let close = UIButton(frame: CGRect(x: self.view.bounds.width - 20 - 38, y: 20, width: 43, height: 43))
         close.setTitle("完成", for: .normal)
         close.setTitleColor(UIColor.init(red: 1, green: 149 / 255, blue: 0, alpha: 1), for: .normal)
+        close.setTitleColor(UIColor.init(red: 1, green: 100 / 255, blue: 0, alpha: 1), for: .selected)
         close.backgroundColor = .clear
         close.addTarget(self, action: #selector(closeTheView), for: .touchUpInside)
         navigationView.addSubview(close)
@@ -199,14 +195,79 @@ class DataViewController: UIViewController, TenClockDelegate {
         }
         animator.startAnimation()
         
-        // TODO 多选cell
+        // 多选cell
         let sunday = UIButton()
+        sunday.frame = CGRect(x: 0, y: 63, width: self.view.bounds.width, height: 50)
+        sunday.setTitle("星期日", for: .normal)
+        sunday.setTitleColor(.lightGray, for: .highlighted)
+        sunday.contentHorizontalAlignment = .left
+        sunday.titleEdgeInsets = UIEdgeInsetsMake(0, 20, 0, 0)
+        sunday.tag = 1
         let monday = UIButton()
+        monday.frame = CGRect(x: 0, y: 115, width: self.view.bounds.width, height: 50)
+        monday.setTitle("星期一", for: .normal)
+        monday.setTitleColor(.lightGray, for: .highlighted)
+        monday.contentHorizontalAlignment = .left
+        monday.titleEdgeInsets = UIEdgeInsetsMake(0, 20, 0, 0)
+        monday.tag = 2
         let tuesday = UIButton()
+        tuesday.frame = CGRect(x: 0, y: 167, width: self.view.bounds.width, height: 50)
+        tuesday.setTitle("星期二", for: .normal)
+        tuesday.setTitleColor(.lightGray, for: .highlighted)
+        tuesday.contentHorizontalAlignment = .left
+        tuesday.titleEdgeInsets = UIEdgeInsetsMake(0, 20, 0, 0)
+        tuesday.tag = 3
         let wednesday = UIButton()
+        wednesday.frame = CGRect(x: 0, y: 219, width: self.view.bounds.width, height: 50)
+        wednesday.setTitle("星期三", for: .normal)
+        wednesday.setTitleColor(.lightGray, for: .highlighted)
+        wednesday.contentHorizontalAlignment = .left
+        wednesday.titleEdgeInsets = UIEdgeInsetsMake(0, 20, 0, 0)
+        wednesday.tag = 4
         let thursday = UIButton()
+        thursday.frame = CGRect(x: 0, y: 271, width: self.view.bounds.width, height: 50)
+        thursday.setTitle("星期四", for: .normal)
+        thursday.setTitleColor(.lightGray, for: .highlighted)
+        thursday.contentHorizontalAlignment = .left
+        thursday.titleEdgeInsets = UIEdgeInsetsMake(0, 20, 0, 0)
+        thursday.tag = 5
         let friday = UIButton()
+        friday.frame = CGRect(x: 0, y: 323, width: self.view.bounds.width, height: 50)
+        friday.setTitle("星期五", for: .normal)
+        friday.setTitleColor(.lightGray, for: .highlighted)
+        friday.contentHorizontalAlignment = .left
+        friday.titleEdgeInsets = UIEdgeInsetsMake(0, 20, 0, 0)
+        friday.tag = 6
         let staturday = UIButton()
+        staturday.frame = CGRect(x: 0, y: 375, width: self.view.bounds.width, height: 50)
+        staturday.setTitle("星期六", for: .normal)
+        staturday.setTitleColor(.lightGray, for: .highlighted)
+        staturday.contentHorizontalAlignment = .left
+        staturday.titleEdgeInsets = UIEdgeInsetsMake(0, 20, 0, 0)
+        staturday.tag = 7
+        
+        let rowBorder0 = UIView(frame: CGRect(x: 20, y: 114, width: self.view.bounds.width - 20, height: 1))
+        rowBorder0.backgroundColor = UIColor.init(red: 49 / 255, green: 49 / 255, blue: 49 / 255, alpha: 1)
+        self.view.addSubview(rowBorder0)
+        let rowBorder1 = UIView(frame: CGRect(x: 20, y: 166, width: self.view.bounds.width - 20, height: 1))
+        rowBorder1.backgroundColor = UIColor.init(red: 49 / 255, green: 49 / 255, blue: 49 / 255, alpha: 1)
+        self.view.addSubview(rowBorder1)
+        let rowBorder2 = UIView(frame: CGRect(x: 20, y: 218, width: self.view.bounds.width - 20, height: 1))
+        rowBorder2.backgroundColor = UIColor.init(red: 49 / 255, green: 49 / 255, blue: 49 / 255, alpha: 1)
+        self.view.addSubview(rowBorder2)
+        let rowBorder3 = UIView(frame: CGRect(x: 20, y: 270, width: self.view.bounds.width - 20, height: 1))
+        rowBorder3.backgroundColor = UIColor.init(red: 49 / 255, green: 49 / 255, blue: 49 / 255, alpha: 1)
+        self.view.addSubview(rowBorder3)
+        let rowBorder4 = UIView(frame: CGRect(x: 20, y: 322, width: self.view.bounds.width - 20, height: 1))
+        rowBorder4.backgroundColor = UIColor.init(red: 49 / 255, green: 49 / 255, blue: 49 / 255, alpha: 1)
+        self.view.addSubview(rowBorder4)
+        let rowBorder5 = UIView(frame: CGRect(x: 20, y: 374, width: self.view.bounds.width - 20, height: 1))
+        rowBorder5.backgroundColor = UIColor.init(red: 49 / 255, green: 49 / 255, blue: 49 / 255, alpha: 1)
+        self.view.addSubview(rowBorder5)
+        let rowBorder6 = UIView(frame: CGRect(x: 20, y: 426, width: self.view.bounds.width - 20, height: 1))
+        rowBorder6.backgroundColor = UIColor.init(red: 49 / 255, green: 49 / 255, blue: 49 / 255, alpha: 1)
+        self.view.addSubview(rowBorder6)
+        
         repeatView!.addSubview(sunday)
         repeatView!.addSubview(monday)
         repeatView!.addSubview(tuesday)
@@ -214,10 +275,61 @@ class DataViewController: UIViewController, TenClockDelegate {
         repeatView!.addSubview(thursday)
         repeatView!.addSubview(friday)
         repeatView!.addSubview(staturday)
+        repeatView!.addSubview(rowBorder0)
+        repeatView!.addSubview(rowBorder1)
+        repeatView!.addSubview(rowBorder2)
+        repeatView!.addSubview(rowBorder3)
+        repeatView!.addSubview(rowBorder4)
+        repeatView!.addSubview(rowBorder5)
+        repeatView!.addSubview(rowBorder6)
+        let buttonGroup = [sunday, monday, tuesday, wednesday, thursday, friday, staturday]
+        setButtonAction(buttons: buttonGroup)
+        
+        for button in buttonGroup {
+            setButtonImage(button: button)
+        }
     }
     
+    /// 设置选择重复规则的点击事件
+    ///
+    /// - Parameter buttons: buttons
+    func setButtonAction(buttons: [UIButton]) {
+        for button in buttons {
+            button.addTarget(self, action: #selector(buttonClick(_:)), for: .touchUpInside)
+        }
+    }
+    
+    
+    /// click implement
+    //
+    /// - Parameter sender: UIButton
+    @objc func buttonClick(_ sender: UIButton) {
+        if !self.timerData.repeatDays.daysLine.contains(sender.tag) {
+            self.timerData.repeatDays.daysLine.append(sender.tag)
+        } else {
+            self.timerData.repeatDays.daysLine.remove(at: self.timerData.repeatDays.daysLine.index(of: sender.tag)!)
+        }
+        setButtonImage(button: sender)
+    }
+    
+    
+    /// 给按钮添加选中图片
+    ///
+    /// - Parameter button: UIButton
+    func setButtonImage(button: UIButton) {
+        if !self.timerData.repeatDays.daysLine.contains(button.tag) {
+            button.setImage(nil, for: .normal)
+        } else {
+            button.setImage(UIImage.init(named: "checked.png"), for: .normal)
+            button.imageEdgeInsets = UIEdgeInsetsMake(1, self.view.bounds.width - 48, 1, 20)
+            // TODO 文字位置在有图片时现实不对
+        }
+    }
+    
+    /// 关闭选择页面
     @objc func closeTheView() {
-        // TODO 保存周期性选项
+        cellView!.updateUIString(name: "重复", value: timerData.repeatDays.repeatDaysSpan)
+        // TODO 保存到数据库、更新通知
         
         let animator = UIViewPropertyAnimator(duration: 0.3, curve: .easeOut){
             self.repeatView!.frame.origin.y = self.view.bounds.height
@@ -228,7 +340,8 @@ class DataViewController: UIViewController, TenClockDelegate {
         animator.startAnimation()
     }
     
-    // 存数据库
+    
+    /// 存数据库
     func saveTheDate() {
         var info = [ColumnType]()
         let col0 = ColumnType(colName: "title", colType: nil, colValue: self.timerData.title)

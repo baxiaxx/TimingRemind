@@ -33,6 +33,7 @@
 		D73D7EB11F8653CD00A91E02 /* NSObjectExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D73D7EAF1F8653CD00A91E02 /* NSObjectExtension.swift */; };
 		D73D7EB21F8653CD00A91E02 /* NSDateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D73D7EB01F8653CD00A91E02 /* NSDateExtension.swift */; };
 		D73D7EB81F86639100A91E02 /* data.db in Resources */ = {isa = PBXBuildFile; fileRef = D73D7EB71F86639100A91E02 /* data.db */; };
+		D7462BCD1FA7046B00A3A7E1 /* checked.png in Resources */ = {isa = PBXBuildFile; fileRef = D7462BCC1FA7046B00A3A7E1 /* checked.png */; };
 		D7A1372B1F839412005F7FF5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7A1372A1F839412005F7FF5 /* AppDelegate.swift */; };
 		D7A137341F839412005F7FF5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D7A137321F839412005F7FF5 /* Main.storyboard */; };
 		D7A137361F839412005F7FF5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D7A137351F839412005F7FF5 /* Assets.xcassets */; };
@@ -94,6 +95,7 @@
 		D73D7EAF1F8653CD00A91E02 /* NSObjectExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NSObjectExtension.swift; path = Extensions/NSObjectExtension.swift; sourceTree = "<group>"; };
 		D73D7EB01F8653CD00A91E02 /* NSDateExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NSDateExtension.swift; path = Extensions/NSDateExtension.swift; sourceTree = "<group>"; };
 		D73D7EB71F86639100A91E02 /* data.db */ = {isa = PBXFileReference; lastKnownFileType = file; name = data.db; path = Resource/data.db; sourceTree = "<group>"; };
+		D7462BCC1FA7046B00A3A7E1 /* checked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = checked.png; path = Resource/checked.png; sourceTree = "<group>"; };
 		D7A137271F839412005F7FF5 /* TimingRemind.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TimingRemind.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D7A1372A1F839412005F7FF5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D7A137331F839412005F7FF5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -204,6 +206,7 @@
 		D73D7EB61F86635600A91E02 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				D7462BCC1FA7046B00A3A7E1 /* checked.png */,
 				D70610AC1F9787B0001E3943 /* test.png */,
 				D73D7EB71F86639100A91E02 /* data.db */,
 			);
@@ -361,6 +364,7 @@
 				D7A137391F839412005F7FF5 /* LaunchScreen.storyboard in Resources */,
 				D70610AD1F9787B0001E3943 /* test.png in Resources */,
 				D73D7EB81F86639100A91E02 /* data.db in Resources */,
+				D7462BCD1FA7046B00A3A7E1 /* checked.png in Resources */,
 				D7A137361F839412005F7FF5 /* Assets.xcassets in Resources */,
 				D7A137341F839412005F7FF5 /* Main.storyboard in Resources */,
 			);
