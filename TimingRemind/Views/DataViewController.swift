@@ -320,7 +320,9 @@ class DataViewController: UIViewController, TenClockDelegate {
     /// 关闭选择页面
     @objc func closeTheView() {
         cellView!.updateUIString(name: "重复", value: timerData.repeatDays.repeatDaysSpan)
-        // TODO 保存到数据库、更新通知
+        // 保存到数据库
+        saveTheDate()
+        // TODO 更新通知
         
         let animator = UIViewPropertyAnimator(duration: 0.3, curve: .easeOut){
             self.repeatView!.frame.origin.y = self.view.bounds.height
