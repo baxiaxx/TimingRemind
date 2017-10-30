@@ -37,7 +37,7 @@ class LocalUserNotification {
     /// 添加通知
     func setupNotification() {
         if self.repeatDays.count <= 0 {
-            // TODO 检查是否已经存在通知
+            // 用相同的identity创建通知可以覆盖，达到修改通知的效果
             let leftTrigger = UNCalendarNotificationTrigger(dateMatching: self.leftDate, repeats: false)
             let rightTrigger = UNCalendarNotificationTrigger(dateMatching: self.rightDate, repeats: false)
             
@@ -59,18 +59,9 @@ class LocalUserNotification {
                 
                 self.notificationCenter.add(leftRequest, withCompletionHandler: nil)
                 self.notificationCenter.add(rightRequest, withCompletionHandler: nil)
+                // TODO 已经通知过的通知是不是应该删除掉
             }
         }
-    }
-    
-    
-    /// 检查系统中是否存在相同的通知
-    ///
-    /// - Parameter identifier: 通知标识id
-    /// - Returns: true or false
-    func checkExist(identifier: String) -> Bool {
-        
-        return true
     }
     
     /// 注销通知
@@ -81,7 +72,7 @@ class LocalUserNotification {
             for item in requestArray {
                 // 根据identifiers移除指定通知
                 if item.identifier == identifier {
-                    self.notificationCenter.removeDeliveredNotifications(withIdentifiers: [identifier])
+                    self.notificationCenter.removePendingNotificationRequests(withIdentifiers: [identifier])
                 }
             }
         }
