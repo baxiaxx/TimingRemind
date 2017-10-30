@@ -28,9 +28,9 @@ class DataViewController: UIViewController, TenClockDelegate {
         dateFormatter.dateFormat = "HH:mm"
         return dateFormatter
     }()
-    func timesChanged(_ clock: TenClock, startDate: Date, endDate: Date) -> () {
-        print("start at: \(startDate), end at: \(endDate)")
-    }
+//    func timesChanged(_ clock: TenClock, startDate: Date, endDate: Date) -> () {
+//        print("start at: \(startDate), end at: \(endDate)")
+//    }
     func timesUpdated(_ clock: TenClock, startDate: Date, endDate: Date) -> () {
         self.leftTime!.text = dateFormatter.string(from: startDate)
         self.rightTime!.text = dateFormatter.string(from: endDate)
@@ -51,9 +51,9 @@ class DataViewController: UIViewController, TenClockDelegate {
         // 询问通知权限
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound]) { (success, error) in
             if success {
-                print("success")
+                print("Notification request succeed!")
             } else {
-                print("error")
+                print("Notification request failed!")
             }
         }
         
