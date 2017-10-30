@@ -199,51 +199,30 @@ class DataViewController: UIViewController, TenClockDelegate {
         let sunday = UIButton()
         sunday.frame = CGRect(x: 0, y: 63, width: self.view.bounds.width, height: 50)
         sunday.setTitle("星期日", for: .normal)
-        sunday.setTitleColor(.lightGray, for: .highlighted)
-        sunday.contentHorizontalAlignment = .left
-        sunday.titleEdgeInsets = UIEdgeInsetsMake(0, 20, 0, 0)
         sunday.tag = 1
         let monday = UIButton()
         monday.frame = CGRect(x: 0, y: 115, width: self.view.bounds.width, height: 50)
         monday.setTitle("星期一", for: .normal)
-        monday.setTitleColor(.lightGray, for: .highlighted)
-        monday.contentHorizontalAlignment = .left
-        monday.titleEdgeInsets = UIEdgeInsetsMake(0, 20, 0, 0)
         monday.tag = 2
         let tuesday = UIButton()
         tuesday.frame = CGRect(x: 0, y: 167, width: self.view.bounds.width, height: 50)
         tuesday.setTitle("星期二", for: .normal)
-        tuesday.setTitleColor(.lightGray, for: .highlighted)
-        tuesday.contentHorizontalAlignment = .left
-        tuesday.titleEdgeInsets = UIEdgeInsetsMake(0, 20, 0, 0)
         tuesday.tag = 3
         let wednesday = UIButton()
         wednesday.frame = CGRect(x: 0, y: 219, width: self.view.bounds.width, height: 50)
         wednesday.setTitle("星期三", for: .normal)
-        wednesday.setTitleColor(.lightGray, for: .highlighted)
-        wednesday.contentHorizontalAlignment = .left
-        wednesday.titleEdgeInsets = UIEdgeInsetsMake(0, 20, 0, 0)
         wednesday.tag = 4
         let thursday = UIButton()
         thursday.frame = CGRect(x: 0, y: 271, width: self.view.bounds.width, height: 50)
         thursday.setTitle("星期四", for: .normal)
-        thursday.setTitleColor(.lightGray, for: .highlighted)
-        thursday.contentHorizontalAlignment = .left
-        thursday.titleEdgeInsets = UIEdgeInsetsMake(0, 20, 0, 0)
         thursday.tag = 5
         let friday = UIButton()
         friday.frame = CGRect(x: 0, y: 323, width: self.view.bounds.width, height: 50)
         friday.setTitle("星期五", for: .normal)
-        friday.setTitleColor(.lightGray, for: .highlighted)
-        friday.contentHorizontalAlignment = .left
-        friday.titleEdgeInsets = UIEdgeInsetsMake(0, 20, 0, 0)
         friday.tag = 6
         let staturday = UIButton()
         staturday.frame = CGRect(x: 0, y: 375, width: self.view.bounds.width, height: 50)
         staturday.setTitle("星期六", for: .normal)
-        staturday.setTitleColor(.lightGray, for: .highlighted)
-        staturday.contentHorizontalAlignment = .left
-        staturday.titleEdgeInsets = UIEdgeInsetsMake(0, 20, 0, 0)
         staturday.tag = 7
         
         let rowBorder0 = UIView(frame: CGRect(x: 20, y: 114, width: self.view.bounds.width - 20, height: 1))
@@ -283,20 +262,29 @@ class DataViewController: UIViewController, TenClockDelegate {
         repeatView!.addSubview(rowBorder5)
         repeatView!.addSubview(rowBorder6)
         let buttonGroup = [sunday, monday, tuesday, wednesday, thursday, friday, staturday]
-        setButtonAction(buttons: buttonGroup)
         
         for button in buttonGroup {
+            setButtonAttribute(button: button)
             setButtonImage(button: button)
+            setButtonAction(button: button)
         }
     }
     
     /// 设置选择重复规则的点击事件
     ///
     /// - Parameter buttons: buttons
-    func setButtonAction(buttons: [UIButton]) {
-        for button in buttons {
-            button.addTarget(self, action: #selector(buttonClick(_:)), for: .touchUpInside)
-        }
+    func setButtonAction(button: UIButton) {
+        button.addTarget(self, action: #selector(buttonClick(_:)), for: .touchUpInside)
+    }
+    
+    
+    /// 设置按钮的属性
+    ///
+    /// - Parameter button: UIButton
+    func setButtonAttribute(button: UIButton) {
+        button.setTitleColor(.lightGray, for: .highlighted)
+        button.contentHorizontalAlignment = .left
+        button.titleEdgeInsets = UIEdgeInsetsMake(0, 20, 0, 0)
     }
     
     
@@ -319,10 +307,13 @@ class DataViewController: UIViewController, TenClockDelegate {
     func setButtonImage(button: UIButton) {
         if !self.timerData.repeatDays.daysLine.contains(button.tag) {
             button.setImage(nil, for: .normal)
+            // fix因为添加图片后导致文字位置发生变化
+            button.titleEdgeInsets = UIEdgeInsetsMake(0, 20, 0, 0)
         } else {
             button.setImage(UIImage.init(named: "checked.png"), for: .normal)
-            button.imageEdgeInsets = UIEdgeInsetsMake(1, self.view.bounds.width - 48, 1, 20)
-            // TODO 文字位置在有图片时现实不对
+            button.imageEdgeInsets = UIEdgeInsetsMake(0, self.view.bounds.width - 48, 0, 0)
+            // fix因为添加图片后导致文字位置发生变化
+            button.titleEdgeInsets = UIEdgeInsetsMake(0, -12, 0, 0)
         }
     }
     
