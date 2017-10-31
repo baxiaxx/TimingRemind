@@ -27,6 +27,10 @@ class LocalUserNotification {
         self.notificationCenter = UNUserNotificationCenter.current()
         
         self.notificationContent.title = timerData.title
+        self.notificationContent.body = "Hello"
+        self.notificationContent.sound = UNNotificationSound.default()
+//        self.notificationContent.attachments = [UNNotificationAttachment]
+        
         self.repeatDays = timerData.repeatDays.daysLine
         self.identity = timerData.identity
         
