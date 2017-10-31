@@ -39,9 +39,11 @@ class DataViewController: UIViewController, TenClockDelegate {
         self.timerData.RightTime = endDate
         
         // 更新数据库
-        saveTheDate()
-        
-        // TODO 变更通知
+        if saveTheDate() > 0 {
+            // 更新通知
+            let localNotification = LocalUserNotification(timerData: self.timerData)
+            localNotification.setupNotification()
+        }
     }
     
     override func viewDidLoad() {
@@ -157,15 +159,16 @@ class DataViewController: UIViewController, TenClockDelegate {
     @objc func openNotification() {
         self.timerData.status = switchButton!.isOn
         // 存储数据
-        saveTheDate()
+        _ = saveTheDate()
+        
+        let localNotification = LocalUserNotification(timerData: self.timerData)
         
         if switchButton!.isOn {
             // 开启通知
-//            let localNotification = LocalUserNotification(timerData: self.timerData)
-//            localNotification.setupNotification()
+            localNotification.setupNotification()
         } else {
             // 关闭通知
-            
+            localNotification.shutdownNotification()
         }
     }
 
@@ -321,8 +324,11 @@ class DataViewController: UIViewController, TenClockDelegate {
     @objc func closeTheView() {
         cellView!.updateUIString(name: "重复", value: timerData.repeatDays.repeatDaysSpan)
         // 保存到数据库
-        saveTheDate()
-        // TODO 更新通知
+        if saveTheDate() > 0 {
+            // 更新通知
+            let localNotification = LocalUserNotification(timerData: self.timerData)
+            localNotification.setupNotification()
+        }
         
         let animator = UIViewPropertyAnimator(duration: 0.3, curve: .easeOut){
             self.repeatView!.frame.origin.y = self.view.bounds.height
@@ -335,7 +341,7 @@ class DataViewController: UIViewController, TenClockDelegate {
     
     
     /// 存数据库
-    func saveTheDate() {
+    func saveTheDate() -> CInt {
         var info = [ColumnType]()
         let col0 = ColumnType(colName: "title", colType: nil, colValue: self.timerData.title)
         
@@ -349,7 +355,7 @@ class DataViewController: UIViewController, TenClockDelegate {
         let col5 = ColumnType(colName: "identity", colType: nil, colValue: self.timerData.identity)
         let col6 = ColumnType(colName: "TIMERREMINDId", colType: nil, colValue: self.timerData.pk)
         info += [col0, col1, col2, col3, col4, col5, col6]
-        _ = SQliteRepository.addOrUpdate(tableName: "TIMERREMIND", colValue: info)
+        return SQliteRepository.addOrUpdate(tableName: "TIMERREMIND", colValue: info)
     }
 }
 
