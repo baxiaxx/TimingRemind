@@ -44,8 +44,22 @@ class LocalUserNotification {
             let leftRequest = UNNotificationRequest(identifier: self.identity + "L", content: self.notificationContent, trigger: leftTrigger)
             let rightRequest = UNNotificationRequest(identifier: self.identity + "R", content: self.notificationContent, trigger: rightTrigger)
             
-            self.notificationCenter.add(leftRequest, withCompletionHandler: nil)
-            self.notificationCenter.add(rightRequest, withCompletionHandler: nil)
+            self.notificationCenter.add(leftRequest, withCompletionHandler: {
+                (Error) -> Void in
+                let delay = DispatchTime.now() + DispatchTimeInterval.seconds(30)
+                DispatchQueue.main.asyncAfter(deadline: delay, execute: {
+                    () -> Void in
+                    self.notificationCenter.removeDeliveredNotifications(withIdentifiers: [self.identity + "L"])
+                })
+            })
+            self.notificationCenter.add(rightRequest, withCompletionHandler: {
+                (Error) -> Void in
+                let delay = DispatchTime.now() + DispatchTimeInterval.seconds(30)
+                DispatchQueue.main.asyncAfter(deadline: delay, execute: {
+                    () -> Void in
+                    self.notificationCenter.removeDeliveredNotifications(withIdentifiers: [self.identity + "R"])
+                })
+            })
         } else {
             for (day, index) in self.repeatDays.enumerated() {
                 self.leftDate.weekday = day
