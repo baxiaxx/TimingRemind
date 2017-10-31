@@ -71,22 +71,46 @@ class LocalUserNotification {
                 let leftRequest = UNNotificationRequest(identifier: self.identity + "L_\(index)", content: self.notificationContent, trigger: leftTrigger)
                 let rightRequest = UNNotificationRequest(identifier: self.identity + "R_\(index)", content: self.notificationContent, trigger: rightTrigger)
                 
-                self.notificationCenter.add(leftRequest, withCompletionHandler: nil)
-                self.notificationCenter.add(rightRequest, withCompletionHandler: nil)
-                // TODO 已经通知过的通知是不是应该删除掉
+                self.notificationCenter.add(leftRequest, withCompletionHandler: {
+                    (Error) -> Void in
+                    let delay = DispatchTime.now() + DispatchTimeInterval.seconds(30)
+                    DispatchQueue.main.asyncAfter(deadline: delay, execute: {
+                        () -> Void in
+                        self.notificationCenter.removeDeliveredNotifications(withIdentifiers: [self.identity + "L"])
+                    })
+                })
+                self.notificationCenter.add(rightRequest, withCompletionHandler: {
+                    (Error) -> Void in
+                    let delay = DispatchTime.now() + DispatchTimeInterval.seconds(30)
+                    DispatchQueue.main.asyncAfter(deadline: delay, execute: {
+                        () -> Void in
+                        self.notificationCenter.removeDeliveredNotifications(withIdentifiers: [self.identity + "R"])
+                    })
+                })
             }
         }
     }
     
     /// 注销通知
-    ///
-    /// - Parameter identifier: 通知标识id
-    func shutdownNotification(identifier: String) {
-        self.notificationCenter.getPendingNotificationRequests { (requestArray: [UNNotificationRequest]) in
-            for item in requestArray {
-                // 根据identifiers移除指定通知
-                if item.identifier == identifier {
-                    self.notificationCenter.removePendingNotificationRequests(withIdentifiers: [identifier])
+    func shutdownNotification() {
+        // 计算当前页面所有通知的identifier
+        var indentifiers = [String]()
+        if self.repeatDays.count <= 0 {
+            indentifiers.append(self.identity + "L")
+            indentifiers.append(self.identity + "R")
+        } else {
+            for (_, index) in self.repeatDays.enumerated() {
+                indentifiers.append(self.identity + "L_\(index)")
+                indentifiers.append(self.identity + "R_\(index)")
+            }
+        }
+        for identifier in indentifiers {
+            self.notificationCenter.getPendingNotificationRequests { (requestArray: [UNNotificationRequest]) in
+                for item in requestArray {
+                    // 根据identifiers移除指定通知
+                    if item.identifier == identifier {
+                        self.notificationCenter.removePendingNotificationRequests(withIdentifiers: [identifier])
+                    }
                 }
             }
         }
