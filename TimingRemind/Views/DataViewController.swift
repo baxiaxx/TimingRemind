@@ -39,7 +39,7 @@ class DataViewController: UIViewController, TenClockDelegate {
         self.timerData.RightTime = endDate
         
         // 更新数据库
-        if saveTheDate() > 0 {
+        if saveTheDate() > 0 && self.timerData.status {
             // 更新通知
             let localNotification = LocalUserNotification(timerData: self.timerData)
             localNotification.setupNotification()
@@ -324,7 +324,7 @@ class DataViewController: UIViewController, TenClockDelegate {
     @objc func closeTheView() {
         cellView!.updateUIString(name: "重复", value: timerData.repeatDays.repeatDaysSpan)
         // 保存到数据库
-        if saveTheDate() > 0 {
+        if saveTheDate() > 0 && self.timerData.status {
             // 更新通知
             let localNotification = LocalUserNotification(timerData: self.timerData)
             localNotification.setupNotification()
