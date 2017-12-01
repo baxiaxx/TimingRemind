@@ -600,10 +600,11 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 4S5QJYZKK2;
 				INFOPLIST_FILE = TimingRemind/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Ellusionists.TimingRemind;
+				PRODUCT_BUNDLE_IDENTIFIER = Ellusionists.Kuo.TimingRemind;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "TimingRemind/SQliteDB/Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
@@ -617,10 +618,11 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 4S5QJYZKK2;
 				INFOPLIST_FILE = TimingRemind/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Ellusionists.TimingRemind;
+				PRODUCT_BUNDLE_IDENTIFIER = Ellusionists.Kuo.TimingRemind;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "TimingRemind/SQliteDB/Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
